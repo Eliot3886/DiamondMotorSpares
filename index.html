@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamond Motor Spares | We Give You More For Your Budget</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/logo.png">    
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="icon" type="image/png" href="/images/logo.png">    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -13,71 +13,130 @@
 <body>
 
     
-    <nav>
-      <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 50px; font-family: Arial, sans-serif;">
-  
+  <nav style="background-color: #0c2340;  position: sticky; top: 0; z-index: 1000;">
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 50px; font-family: Arial, sans-serif;">
         <div class="logo" style="display: flex; align-items: center; font-weight: bold; font-size: 24px; color: white">
-             <img src="images/logo.png" alt="Diamond Motor Spares" style="height: 50px; border-radius: 20%; margin-right: 10px;">
-              DIAMOND <span style="margin-left: 5px; color: red;">MOTOR SPARES</span>
+            <img src="/images/logo.png" alt="Diamond Motor Spares" style="height: 50px; border-radius: 20%; margin-right: 10px;">
+            DIAMOND <span style="margin-left: 5px; color: red;">MOTOR SPARES</span>
         </div>
-      </header>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61573806653387&sk=following" target="_blank"><i style="font-size: 1rem;" class="fa-brands fa-facebook"></i></a></li>
         </ul>
-        <div class="burger">
-            <div></div><div></div><div></div>
+
+        <div class="burger" onclick="toggleMenu()" style="cursor: pointer; display: none; flex-direction: column; gap: 5px;">
+            <div style="width: 25px; height: 3px; background-color: white;"></div>
+            <div style="width: 25px; height: 3px; background-color: white;"></div>
+            <div style="width: 25px; height: 3px; background-color: white;"></div>
         </div>
-    </nav>
-    
+    </header>
+
+    <style>
+        /* Base Nav Styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        .nav-links li { padding: 0 15px; }
+        .nav-links a { color: white; text-decoration: none; font-family: Arial; font-weight: bold; }
+
+        /* Responsive Media Query */
+        @media screen and (max-width: 768px) {
+            header { padding: 10px 20px !important; }
+            .logo { font-size: 18px !important; }
+            
+            .burger { display: flex !important; }
+
+            .nav-links {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #222;
+                padding: 20px 0;
+                z-index: 1000;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex; /* Shown when burger is clicked */
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid #444;
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</nav>
 
     <section id="home" class="hero" class="about-section reveal-left">
         <div class="hero-content">
             <h1>We Give You More For Your Budget</h1>
             <p>Your trusted partner for quality vehicle parts in Wengezi and Mutare.</p>
     
-            <a href="#products" class="btn">View Our Stock</a>
+            <a href="/products" class="btn">View Our Stock</a>
     
              <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20interested%20in%20buying%20vehicle%20parts." 
                class="btn btn-whatsapp" 
-              target="_blank">Talk to us</a>
+              target="_blank">Order Parts</a>
 </div>        
     </section>
     
-  <section id="about" class="about-section" >
+  <section id="about" class="about-section">
     <div class="container">
-        <h2>About Diamond Motor Spares</h2>
+        <h2>About Us</h2>
+        <div class="underline"></div>
         <p class="trademark"><em>"We Give You More For Your Budget"</em></p>
         
         <div class="about-grid">
             <div class="about-text">
-                <p><strong>Founded in 2021 by Robson Machiva</strong>, Diamond Motor Spares was built on a simple yet powerful vision: to provide high-quality automotive components that keep you on the road without breaking the bank.</p>
+                <p><strong>Founded in 2021 by Robson Machiva</strong>, Diamond Motor Spares was born from a clear vision: to bridge the gap between premium automotive quality and affordability.</p>
                 
-                <p>We specialize in a comprehensive range of motor spares for all vehicle makes and models. Whether you are performing routine maintenance or a major repair, we source parts that meet the highest standards of reliability and performance.</p>
+                <p>We specialize in a comprehensive inventory of spares for all makes and models. Every part we stock is meticulously vetted for durability and performance.</p>
                 
-                <p>Currently, we are proud to serve our customers through <strong>two established branches in Mutare and Wengezi</strong>. Our local presence allows us to understand the specific needs of drivers in these regions and provide fast, expert service.</p>
+                <p>Today, we proudly serve the community through <strong>strategic branches in Mutare and Wengezi</strong>, providing localized expertise for drivers and mechanics alike.</p>
                 
-                <h3>Our Future</h3>
-                <p>We are not stopping here. At Diamond Motor Spares, we are driven by growth. To better serve the automotive community, <strong>we are excited to announce that we will be opening more branches in the coming year</strong>, bringing affordable, quality spares to even more locations.</p>
+                <h3>A Growing Legacy</h3>
+                <p><strong>We are actively expanding our footprint with new branches scheduled to open this year</strong>  bringing world-class spares closer to your doorstep.</p>
             </div>
 
             <div class="about-features">
                 <div class="feature-item">
-                    <h4>Our Mission</h4>
-                    <p>To be the leading provider of affordable, high-quality motor spares in the region, ensuring safety and reliability for every driver.</p>
+                    <h4><i class="fas fa-bullseye"></i> Our Mission</h4>
+                    <p>To empower every driver with reliable, high-standard automotive solutions that ensure vehicle longevity without compromising on cost.</p>
                 </div>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
                 <div class="feature-item">
-                    <h4>Why Choose Us?</h4>
-                    <ul>
-                        <p>Expertly sourced parts</p>
-                        <p>Competitive, budget-friendly pricing</p>
-                        <p>Professional advice from a dedicated team</p>
-                        <p>Rapidly expanding network</p>
+                    <h4><i class="fas fa-check-circle"></i> Why Choose Us</h4>
+                    <ul class="feature-list">
+                        <li><strong>Quality Assured:</strong> Trusted global manufacturers.</li>
+                        <li><strong>Budget Optimized:</strong> Competitive pricing.</li>
+                        <li><strong>Expert Support:</strong> Technical advice from engine experts.</li>
+                        <li><strong>Scalability:</strong> A rapidly growing network.</li>
                     </ul>
                 </div>
+
                 <div class="brand-promise">
                     <p>Diamond Motor Spares:<br><strong>We Give You More For Your Budget.</strong></p>
                 </div>
@@ -85,127 +144,178 @@
         </div>
     </div>
 </section>
-    </section>
 
-    <section id="products" class="bg-light">
-        <h2>Our Products</h2>
-        <div class="product-grid">
-            <div class="card">Engine Parts</div>
-            <div class="card">Suspension</div>
-            <div class="card">Brake Systems</div>
-            <div class="card">Electricals</div>
-        </div>
-    </section>
-
-    <section id="gallery">
+<section id="products">
     <div class="container">
-        <h2>Our Gallery</h2>
-        <p class="trademark-center">We Give You More For Your Budget</p>
-        
-        <div class="photo-grid">
-            <div class="gallery-item">
-                <img src="your-image1.jpg" alt="Engine Parts">
-                <div class="overlay"><span>Engine Spares</span></div>
-            </div>
-            <div class="gallery-item">
-                <img src="your-image2.jpg" alt="Brake Discs">
-                <div class="overlay"><span>Braking Systems</span></div>
-            </div>
-            <div class="gallery-item">
-                <img src="your-image3.jpg" alt="Suspension">
-                <div class="overlay"><span>Suspension</span></div>
-            </div>
-            <div class="gallery-item">
-                <img src="your-image4.jpg" alt="Service Kits">
-                <div class="overlay"><span>Service Kits</span></div>
-            </div>
-            <div class="gallery-item">
-                <img src="your-image5.jpg" alt="Diamond Motor Spares Shop">
-                <div class="overlay"><span>Our Branch</span></div>
-            </div>
-            <div class="gallery-item">
-                <img src="your-image6.jpg" alt="Batteries">
-                <div class="overlay"><span>Batteries</span></div>
-            </div>
-        </div>
-    </div>
-</section>   
-
-    <section id="contact" class="bg-light">
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
-<section class="contact-section">
-    <div class="contact-header">
-        <h2>Contact Us</h2>
+        <h2>Our Products</h2>
         <div class="underline"></div>
-    </div>
-
-    <div class="contact-container">
-        <div class="info-panel">
-            <h3>Contact Information</h3>
-            <p>Fill out the form and our team will get back to you within 24 hours.</p>
-
-            <div class="info-item">
-                <div class="icon-box"><ion-icon name="time-outline"></ion-icon></div>
-                <div>
-                    <strong>Hours</strong>
-                    <p>6:00 AM - 5:00 PM (Daily)</p>
-                </div>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <i class="fas fa-engine"></i>
+                <i class="fas fa-cogs"></i> <h4>Engine Parts</h4>
+                <p>Pistons, valves, gaskets, and timing kits. Precision-engineered for peak performance.</p>
             </div>
 
-            <div class="info-item">
-                <div class="icon-box"><ion-icon name="call-outline"></ion-icon></div>
-                <div>
-                    <strong>Phone</strong>
-                    <p>+263 788 158 614 / +263 784 664 658</p>
-                </div>
+            <div class="product-card">
+                <i class="fas fa-car-side"></i>
+                <h4>Suspension</h4>
+                <p>Shock absorbers, control arms, and bushings. Built for smooth handling and road safety.</p>
             </div>
 
-            <div style="color: #ffffff;" class="info-item">
-                <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
-                <div>
-                    <strong>Locations</strong>
-                    <p>Wengezi & Mutare</p>
-         <iframe 
-           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.1678128456184!2d32.66422437593672!3d-18.979148100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x192d6e000ef0b339%3A0xf497bd98dce5fec7!2s22%20Second%20St%2C%20Mutare%2C%20Zimbabwe!5e0!3m2!1sen!2sza!4v1704655000000!5m2!1sen!2sza"
-           width="600" 
-           height="450" 
-           style="border: 0; background-color: #ffffff; display: block;" 
-          allowfullscreen="" 
-         loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-     </iframe>                 
-                </div>
+            <div class="product-card">
+                <i class="fas fa-horizontal-rule"></i>
+                <i class="fas fa-disc-drive"></i>
+                <i class="fas fa-stop-circle"></i>
+                <h4>Brake Systems</h4>
+                <p>Premium pads, discs, and master cylinders to ensure your stopping power is never compromised.</p>
             </div>
-        </div>
 
-        <div class="form-panel">
-            <form action="https://formspree.io/f/mvzgeooq" method="POST" id="contact-form">
-                <div class="input-row">
-                    <div class="input-group">
-                        <label>Name</label>
-                        <input type="text" name="name" placeholder="enter your name" required>
-                    </div> 
-                    <div class="input-group">
-                        <label>Email</label>
-                        <input type="email" name="email" placeholder="enter your email" required>
-                    </div>
-                </div>
-                
-                <div class="input-group">
-                    <label>Message</label>
-                    <textarea name="message" placeholder="How can we help you?" rows="5" required></textarea>
-                </div>
-                
-                <button type="submit" class="btn-submit">
-                    Send Message
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                </button>
-            </form>
+            <div class="product-card">
+                <i class="fas fa-bolt"></i>
+                <h4>Electricals</h4>
+                <p>High-output alternators, starters, and batteries to keep your vehicle powered and ready.</p>
+            </div>
         </div>
     </div>
 </section>
-    </section>
+
+ <section id="gallery">
+    <div class="gallery-header">
+        <p class="trademark-gold">Visual Excellence</p>
+        <h2>Our Gallery</h2>
+        <div class="underline-premium"></div>
+    </div>
+    
+    <div class="photo-grid-premium">
+        <div class="gallery-item item-large">
+            <img src="https://w7.pngwing.com/pngs/383/909/png-transparent-car-automotive-industry-automobile-repair-shop-engine-car-service-car-automobile-repair-shop-thumbnail.png" alt="Engine">
+            <div class="overlay-premium">
+                <span class="category-tag">High Performance</span>
+                <h4>Precision Engine Spares</h4>
+            </div>
+        </div>
+
+        <div class="gallery-item item-tall">
+            <img src="https://powerbrake.co.za/images/xline/x-line-stg1-pr-01.png" alt="Brakes">
+            <div class="overlay-premium">
+                <span class="category-tag">Safety First</span>
+                <h4>Braking Systems</h4>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://modernautoparts.co.za/cdn/shop/products/BMWX5E70FrontSuspensionKit.png?v=1750547439" alt="Suspension">
+            <div class="overlay-premium">
+                <span class="category-tag">Stability</span>
+                <h4>Suspension Kits</h4>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://www.autosparez.co.za/wp-content/uploads/2022/10/Toyota-Tazz-Conquest-2E-Service-Kit-Autosparez-Online.png" alt="Service">
+            <div class="overlay-premium">
+                <span class="category-tag">Maintenance</span>
+                <h4>Service Parts</h4>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTPIM88fhSKzPyoPJtAFrq7sYaIlWJN2akrw&s" alt="Battery">
+            <div class="overlay-premium">
+                <span class="category-tag">Electrical</span>
+                <h4>Power Solutions</h4>
+            </div>
+        </div>
+    </div>
+</section>
+   <section id="contact" class="contact-wrapper">
+    <style>
+        .info-sidebar, .form-container {
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer;
+        }
+        .info-sidebar:hover, .form-container:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+        }
+    </style>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+    <div class="container">
+        <div class="contact-header">
+            <span class="subtitle">Get In Touch</span>
+            <h2>Contact Our Team</h2>
+            <div class="accent-line"></div>
+        </div>
+
+        <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px;">
+            
+            <div class="info-sidebar" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <div class="contact-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Contact Information</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Expect a response from our professional team within 24 business hours.</p>
+
+                    <div class="info-list">
+                        <div class="info-item" style="display: flex; gap: 15px; margin-bottom: 20px;">
+                            <ion-icon name="time-outline" style="font-size: 1.5rem; color: red;"></ion-icon>
+                            <div>
+                                <strong style="font-size: 1rem; display: block;">Business Hours</strong>
+                                <p style="margin: 0;">6:00 AM - 5:00 PM (Daily)</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item" style="display: flex; gap: 15px;">
+                            <ion-icon name="call-outline" style="font-size: 1.5rem; color: red;"></ion-icon>
+                            <div>
+                                <strong style="font-size: 1rem; display: block;">Phone Lines</strong>
+                                <p style="margin: 0;">+263 788 158 614<br>+263 784 664 658</p>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <div class="branch-locations" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px;">
+                    <div class="map-box" style="background: #f9f9f9; padding: 10px; border-radius: 8px;">
+                        <span class="branch-label" style="display: block; font-weight: bold; font-size: 0.8rem; margin-bottom: 5px;">Mutare Branch</span>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60065.75336052807!2d32.61869894863281!3d-18.971189999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eb5947a19266787%3A0x86134a621183c27e!2sMutare!5e0!3m2!1sen!2szw!4v1710000000000!5m2!1sen!2szw" 
+                            style="width: 100%; height: 120px; border: none; border-radius: 5px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <div class="form-container" style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <form action="https://formspree.io/f/mvzgeooq" method="POST" id="contact-form">
+                    <h3 style="margin-bottom: 25px; ">Send us a Message</h3>
+                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="input-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Full Name</label>
+                            <input type="text" name="name" placeholder="e.g. John Doe" required style="width: 100%; padding: 12px; border: 0.4px solid red; border-radius: 6px;">
+                        </div> 
+                        <div class="input-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Email Address</label>
+                            <input type="email" name="email" placeholder="yourname@gmail.com" required style="width: 100%; padding: 12px; border: 0.4px solid red; border-radius: 6px;">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 25px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Message</label>
+                        <textarea name="message" placeholder="How can we assist you today?" rows="8" required style="width: 100%; padding: 12px; border: 0.4px solid red; border-radius: 6px;"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit" style="width: 100%; padding: 15px; background: #e31e24; color: white; border: none; border-radius: 6px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;">
+                        <span>Send Message</span>
+                        <ion-icon name="paper-plane"></ion-icon>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 
     <footer class="main-footer">
@@ -215,8 +325,8 @@
             <p>We don't wait for the future. We keep you moving with quality parts and expert service.</p>
             <p class="footer-trademark">"We Give You More For Your Budget"</p>
             <div class="social-links">
-                <a href="#"><i style="color: blue; background-color: white; border-radius: 100%;"  class="fa-brands fa-facebook"></i></i> Facebook</a>
-                <a href="#"><i style="color: red; background-color: white; border-radius: 100%;" class="fa-brands fa-youtube"></i> Youtube</a>
+                <a href="https://www.facebook.com/profile.php?id=61573806653387&sk=following" target="_blank"><i style="color: blue; background-color: white; border-radius: 100%;"  class="fa-brands fa-facebook"></i></i> Facebook</a>
+                <a href= "https://wa.me/263784664658?text=Welcome%20to%20Diamond%20Motor%20Spares%20,%20How%20can%20we%20assist%20you?" target="_blank"><i style="color: green; background-color: white; border-radius: 100%;" class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                 
             </div>
         </div>
@@ -224,11 +334,11 @@
         <div class="footer-col">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
 
@@ -257,6 +367,6 @@
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
