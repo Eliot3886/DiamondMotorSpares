@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Components | Premium Parts</title>
+    <link rel="icon" type="image/png" href="/images/logo.png">   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-red: #e31e24;
+            --dark-bg: #121212;
+            --card-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Hero Header Section */
+        .engine-header {
+            background: linear-gradient(#0c2340);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            border-bottom: 5px solid var(--primary-red);
+            position: sticky;
+        }
+
+        /* Breadcrumb styling */
+        .breadcrumb-item a { color: white; font-size: 1.3rem; text-decoration: none; transition: transform 0.25s ease, color 0.25s ease;}
+    .breadcrumb-item a:hover { color: red; background-color: white; border-radius: 25px; transform: translateY(-3px); font-size: 1.32rem;
+    }
+        .breadcrumb-item.active { color: var(--primary-red); font-size: 1.3rem; text-decoration: none; transition: transform 0.25s ease, color 0.25s ease;}
+
+        /* Part Card Styling */
+        .part-card {
+            background: #ffffff;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .part-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--primary-red);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .part-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .part-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Image Container */
+        .img-container {
+            background: #fdfdfd;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+        }
+
+        .img-container img {
+            max-height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .part-card:hover img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        /* Content Styling */
+        .part-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .part-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        .part-sku {
+            color: #999;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Inquire Button */
+        .btn-inquire {
+            background-color: #0c2340;
+            color: white;
+            border-radius: 50px;
+            padding: 8px 25px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 2px solid var(--dark-bg);
+            width: 100%;
+        }
+
+        .btn-inquire:hover {
+            background-color: var(--primary-red);
+            border-color: var(--primary-red);
+            color: white;
+            box-shadow: 0 5px 15px rgba(227, 30, 36, 0.3);
+        }
+
+        /* Badge for "In Stock" */
+        .stock-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="engine-header text-center">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#dedicated-products">Products</a></li>
+                    <li class="breadcrumb-item active">Fuel Components</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold">FUEL COMPONENTS</h1>
+            <p class="lead"><i>"We give more for your budget"</i></p>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5 pb-3 border-bottom">
+                <span class="text-muted">Showing <strong>8</strong> Fuel Components</span>
+                <div class="dropdown">
+                    <button class="btn btn-outline-dark dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown">
+                        Sort By: Latest
+                    </button>
+                </div>
+            </div>
+
+<div class="row g-4">
+                
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge"><i class="fas fa-check me-1"></i> IN STOCK</span>
+                        <div class="img-container">
+                            <img src="https://media.istockphoto.com/id/1033298590/photo/car-oil-filter-isolated-on-white-background-automobile-spare-part.jpg?s=612x612&w=0&k=20&c=OHzfK0cuoP3VrJ-rvN2AbFZABj2or9NKa19vLXrNQhI=" alt="Engine Oil Filter" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Engine Oil Filter</figcaption>
+                            <span class="part-sku">SKU: SS-1010</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>      
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge"><i class="fas fa-check me-1"></i> IN STOCK</span>
+                        <div class="img-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZdgfOl4SpTO6K98t77UXtOHgjNetMSo0Btg&s" alt="Engine Air Filter" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Engine Air Filter</figcaption>
+                            <span class="part-sku">SKU: SS-2022</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge"><i class="fas fa-check me-1"></i> IN STOCK</span>
+                        <div class="img-container">
+                            <img src="https://hyundaiparts.co.za/wp-content/uploads/2018/05/cabinairfilter_02.png" alt="Cabin Air Filter" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Cabin Air Filter</figcaption>
+                            <span class="part-sku">SKU: SS-3033</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge text-danger" style="background: rgba(220, 53, 69, 0.1);">
+                            <i class="fas fa-clock me-1"></i> LOW STOCK
+                        </span>
+                        <div class="img-container">
+                            <img src="https://www.titanteal.com/sites/default/files/sites/default/files/industries/Fuel-Filter.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Fuel Filter</figcaption>
+                            <span class="part-sku">SKU: SS-4044</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge"><i class="fas fa-check me-1"></i> IN STOCK</span>
+                        <div class="img-container">
+                            <img src="https://www.nicepng.com/png/full/799-7997090_car-transmission-filters-transmission-filter-png.png" alt="Transmission Filter" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Transmission Filter</figcaption>
+                            <span class="part-sku">SKU: SS-5055</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge"><i class="fas fa-check me-1"></i> IN STOCK</span>
+                        <div class="img-container">
+                            <img src="https://seaportsupply.co.za/wp-content/uploads/2024/06/RT-A23C14570P.jpg" alt="Fuel Water Separator" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Fuel Water Separator</figcaption>
+                            <span class="part-sku">SKU: SS-6066</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge"><i class="fas fa-check me-1"></i> IN STOCK</span>
+                        <div class="img-container">
+                            <img src="https://cdn.shopify.com/s/files/1/0623/8673/3315/files/FPNG-S636x467_9rmag1_600x600.png?v=1756336243.webp" alt="Power Steering Filter" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Power Steering Filter</figcaption>
+                            <span class="part-sku">SKU: SS-7077</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>
+                </div>                
+
+                <div class="col-sm-6 col-lg-3">
+                    <figure class="part-card shadow-sm h-100">
+                        <span class="stock-badge text-danger" style="background: rgba(220, 53, 69, 0.1);">
+                            <i class="fas fa-clock me-1"></i> LOW STOCK
+                        </span>
+                        <div class="img-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxaP4ZuXpMHHhHdBne8wj9R9aQgXwoWfbg4A&s" alt="Hydraulic Filter" class="img-fluid">
+                        </div>
+                        <div class="part-info text-center">
+                            <figcaption class="part-title">Hydraulic Filter</figcaption>
+                            <span class="part-sku">SKU: SS-8088</span>
+                            <a href="tel:+263788158614" class="btn btn-inquire">
+                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            </a>
+                        </div>
+                    </figure>
+                </div>                
+            </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

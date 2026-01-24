@@ -3,102 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta  name="description"  content="Find high-quality auto parts at Diamond Motor Spares. We stock a wide range of reliable engine components, body parts, and accessories for all vehicle makes and models. Shop affordable spares today!" />
     <title>Diamond Motor Spares | We Give You More For Your Budget</title>
     <link rel="stylesheet" href="/style/style.css">
     <link rel="icon" type="image/png" href="/images/logo.png">    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     
 </head>
 <body>
+ <nav class="navbar">
+  <div class="logo"><h1> <img src="images/logo.png" alt="diamondmotorspares">DIAMOND <span>MOTOR SPARES</span></h1></div>
+  
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
 
-    
-  <nav style="background-color: #0c2340;  position: sticky; top: 0; z-index: 1000;">
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 50px; font-family: Arial, sans-serif;">
-        <div class="logo" style="display: flex; align-items: center; font-weight: bold; font-size: 24px; color: white">
-            <img src="/images/logo.png" alt="Diamond Motor Spares" style="height: 50px; border-radius: 20%; margin-right: 10px;">
-            DIAMOND <span style="margin-left: 5px; color: red;">MOTOR SPARES</span>
-        </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#dedicated-products">Products</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.facebook.com/profile.php?id=61573806653387&sk=following" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>   
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/gallery">Gallery</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="https://www.facebook.com/profile.php?id=61573806653387&sk=following" target="_blank"><i style="font-size: 1rem;" class="fa-brands fa-facebook"></i></a></li>
-        </ul>
-
-        <div class="burger" onclick="toggleMenu()" style="cursor: pointer; display: none; flex-direction: column; gap: 5px;">
-            <div style="width: 25px; height: 3px; background-color: white;"></div>
-            <div style="width: 25px; height: 3px; background-color: white;"></div>
-            <div style="width: 25px; height: 3px; background-color: white;"></div>
-        </div>
-    </header>
-
-    <style>
-        /* Base Nav Styles */
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-        .nav-links li { padding: 0 15px; }
-        .nav-links a { color: white; text-decoration: none; font-family: Arial; font-weight: bold; }
-
-        /* Responsive Media Query */
-        @media screen and (max-width: 768px) {
-            header { padding: 10px 20px !important; }
-            .logo { font-size: 18px !important; }
-            
-            .burger { display: flex !important; }
-
-            .nav-links {
-                display: none; /* Hidden by default on mobile */
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: #222;
-                padding: 20px 0;
-                z-index: 1000;
-                text-align: center;
-            }
-
-            .nav-links.active {
-                display: flex; /* Shown when burger is clicked */
-            }
-
-            .nav-links li {
-                padding: 15px 0;
-                border-bottom: 1px solid #444;
-                width: 100%;
-            }
-        }
-    </style>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('active');
-        }
-    </script>
+  </ul>
 </nav>
-
+<section style="overflow-x: hidden; width: 100%;">  
     <section id="home" class="hero" class="about-section reveal-left">
         <div class="hero-content">
             <h1>We Give You More For Your Budget</h1>
             <p>Your trusted partner for quality vehicle parts in Wengezi and Mutare.</p>
     
-            <a href="/products" class="btn">View Our Stock</a>
+            <a href="#dedicated-products" class="btn">View Our Stock</a>
     
              <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20interested%20in%20buying%20vehicle%20parts." 
                class="btn btn-whatsapp" 
               target="_blank">Order Parts</a>
-</div>        
+        </div>        
     </section>
     
   <section id="about" class="about-section">
@@ -109,15 +55,19 @@
         
         <div class="about-grid">
             <div class="about-text">
-                <p><strong>Founded in 2021 by Robson Machiva</strong>, Diamond Motor Spares was born from a clear vision: to bridge the gap between premium automotive quality and affordability.</p>
-                
-                <p>We specialize in a comprehensive inventory of spares for all makes and models. Every part we stock is meticulously vetted for durability and performance.</p>
-                
-                <p>Today, we proudly serve the community through <strong>strategic branches in Mutare and Wengezi</strong>, providing localized expertise for drivers and mechanics alike.</p>
-                
-                <h3>A Growing Legacy</h3>
-                <p><strong>We are actively expanding our footprint with new branches scheduled to open this year</strong>  bringing world-class spares closer to your doorstep.</p>
-            </div>
+             <p><strong>Founded in 2021 by Robson Machiva</strong>, Diamond Motor Spares was born from a clear vision: to bridge the gap between premium automotive quality and affordability for every vehicle owner.</p>
+    
+            <p>We specialize in a comprehensive inventory of <strong>genuine and aftermarket spares</strong> for all makes and models. Whether you are looking for <strong>Toyota Hiace (Quantum) parts</strong>, <strong>Nissan NP200/Hardbody components</strong>, or reliable spares for <strong>Isuzu, Mazda, and Honda</strong>, every part we stock is meticulously vetted for durability.</p>
+    
+            <p>Today, we proudly serve the Manicaland community through <strong>strategic branches in Mutare and Wengezi</strong>. We provide localized expertise in <strong>engine components, suspension kits, braking systems, and service filters</strong> for both light passenger cars and heavy-duty workhorses.</p>
+    
+            <h3 class="legacy-title">A Growing Legacy</h3>
+            <p><strong>We are actively expanding our footprint with new branches scheduled to open this year</strong>—bringing world-class <strong>Toyota, Nissan, and Mitsubishi spares</strong> closer to your doorstep in Zimbabwe.</p>
+
+          <div class="seo-tags">
+            <span>#ToyotaParts</span> <span>#NissanSpares</span> <span>#HiaceComponents</span> <span>#MutareMotors</span> <span>#WengeziSpares</span>
+          </div>
+        </div>
 
             <div class="about-features">
                 <div class="feature-item">
@@ -145,36 +95,60 @@
     </div>
 </section>
 
-<section id="products">
+<section id="dedicated-products" class="py-5 bg-light">
+    <h1 style="color: #142d4c;" >Our Products</h1>
     <div class="container">
-        <h2>Our Products</h2>
-        <div class="underline"></div>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <i class="fas fa-engine"></i>
-                <i class="fas fa-cogs"></i> <h4>Engine Parts</h4>
-                <p>Pistons, valves, gaskets, and timing kits. Precision-engineered for peak performance.</p>
-            </div>
+        <div class="row">
+            <aside class="col-lg-3 mb-4">
+               <div class="filter-box shadow-sm">
+                 <h5>Search Inventory</h5>
+                 <div class="input-group mb-4">
+                     <input type="text" id="searchInput" class="form-control" placeholder="Search categories...">
+                     <span class="input-group-text"><i class="fas fa-search"></i></span> 
+                 </div> <h5>Categories</h5>
+                <ul class="list-unstyled category-list" id="categoryList">
+                   <li><a href="EngineComponents.html" target="_blank"><i class="fas fa-chevron-right me-2 small"></i> ENGINE AND GEARBOX COMPONENTS</a></li>
+                   <li><a href="BrakingSystem.html" target="_blank"><i class="fas fa-chevron-right me-2 small"></i> BRAKE AND CLUTCH COMPONENTS</a></li>
+                   <li><a href="Suspension.html" target="_blank"><i class="fas fa-chevron-right me-2 small"></i> SUSPENSION COMPONENTS</a></li>
+                   <li><a href="Timing.html" target="_blank"><i class="fas fa-chevron-right me-2 small"></i> TIMING COMPONENTS</a></li>
+                   <li><a href="OilsLubricates.html" target="_blank"><i class="fas fa-chevron-right me-2 small"></i> OILS AND LUBRICATES</a></li>               
+                   <li><a href="Electrical.html" target="_blank"><i class="fas fa-chevron-right me-2 small"></i> ELECTRICAL AND IGNITION COMPONENTS</a></li>
+                   <li><a href="Fuel Components.html" target="_blank"><i class="fas fa-chevron-right me-2 small"></i> FUEL COMPONENTS</a></li>                      
+                   
+                </ul>
+               </div>
+            </aside>
 
-            <div class="product-card">
-                <i class="fas fa-car-side"></i>
-                <h4>Suspension</h4>
-                <p>Shock absorbers, control arms, and bushings. Built for smooth handling and road safety.</p>
-            </div>
 
-            <div class="product-card">
-                <i class="fas fa-horizontal-rule"></i>
-                <i class="fas fa-disc-drive"></i>
-                <i class="fas fa-stop-circle"></i>
-                <h4>Brake Systems</h4>
-                <p>Premium pads, discs, and master cylinders to ensure your stopping power is never compromised.</p>
-            </div>
 
-            <div class="product-card">
-                <i class="fas fa-bolt"></i>
-                <h4>Electricals</h4>
-                <p>High-output alternators, starters, and batteries to keep your vehicle powered and ready.</p>
+                <div class="product-grid-main">
+                    <div class="product-card-dedicated">
+                       <div class="icon-wrapper">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Engine Parts</h4>
+                        <p>Pistons, valves, and timing kits precision-engineered for peak performance.</p>
+                        <a href="tel:+263788158614" class="btn-inquire">Inquire Now</a>
+                    </div>
+
+                    <div class="product-card-dedicated">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h4>Suspension</h4>
+                        <p>Shock absorbers, control arms, and bushings. Built for smooth handling and road safety</p>
+                        <a href="tel:+263788158614" class="btn-inquire">Inquire Now</a>
+                    </div>
+                    <div class="product-card-dedicated">
+                      <div class="icon-wrapper">
+                            <i class="fas fa-dot-circle"></i> </div>
+                     <div class="product-content">
+                     <h4>Brake Systems</h4>
+                     <p>Premium pads, discs, and master cylinders to ensure your stopping power is never compromised.</p>
+                    <a href="tel:+263788158614" class="btn-inquire">Inquire Now</a>
+                   </div>                                      
+                  </div>                    
+                </div>
             </div>
         </div>
     </div>
@@ -229,104 +203,289 @@
         </div>
     </div>
 </section>
-   <section id="contact" class="contact-wrapper">
+<section id="contact" class="contact-wrapper">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
     <style>
-        .info-sidebar, .form-container {
-            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-            cursor: pointer;
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        :root {
+            --primary-red: #e31e24;
+            --primary-hover: #c1171d;
+            --dark-surface:  #142d4c;
+            --glass-white: rgba(255, 255, 255, 0.95);
+            --text-gray: #6b7280;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .info-sidebar:hover, .form-container:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+
+        .contact-wrapper {
+            padding: clamp(60px, 10vw, 120px) 20px;
+            background: radial-gradient(circle at top right, #fff5f5, #ffffff);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+            color: var(--dark-surface);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .contact-header { text-align: center; margin-bottom: 60px; }
+        .contact-header h2 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin: 0;
+            color: #0c2340;
+            text-decoration: none;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        /* --- Layout Grid --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* --- Sidebar & Cards --- */
+        .info-sidebar {
+            background: var(--dark-surface);
+            color: white;
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25);
+        }
+
+        .branch-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .branch-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .branch-card h4 { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            margin: 0 0 15px 0; 
+            font-size: 1.25rem; 
+        }
+
+        .map-preview {
+            width: 100%;
+            height: 160px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- Badges & Buttons --- */
+        .coming-soon-badge {
+            font-size: 0.65rem;
+            background: var(--primary-red);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .view-map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .view-map-btn:hover { color: #fff; transform: translateX(5px); }
+
+        /* --- Form Styling --- */
+        .form-container {
+            background: var(--glass-white);
+            padding: clamp(30px, 5vw, 60px);
+            border-radius: 32px;
+            border: 1px solid #fff;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
+        }
+
+        .input-group { margin-bottom: 24px; }
+        
+        .form-row { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 20px; 
+        }
+
+        .input-group label { 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            color: #374151; 
+            margin-bottom: 8px; 
+            display: block; 
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%; 
+            padding: 16px 20px; 
+            background: #f3f4f6; 
+            border: 2px solid transparent;
+            border-radius: 16px; 
+            font-size: 1rem; 
+            transition: var(--transition); 
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            background: white; 
+            border-color: var(--primary-red); 
+            outline: none;
+            box-shadow: 0 8px 20px rgba(227, 30, 36, 0.08);
+        }
+
+        .btn-submit {
+            width: 100%; 
+            padding: 18px; 
+            background: var(--primary-red); 
+            color: white; 
+            border: none;
+            border-radius: 18px; 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            cursor: pointer;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover { 
+            background: var(--primary-hover); 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 30px rgba(227, 30, 36, 0.2); 
+        }
+
+        /* --- Desktop Refinement --- */
+        @media (min-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr 1.6fr; gap: 60px; }
+            .form-row { grid-template-columns: 1fr 1fr; }
+            .info-sidebar { position: sticky; top: 40px; }
         }
     </style>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
     <div class="container">
         <div class="contact-header">
-            <span class="subtitle">Get In Touch</span>
-            <h2>Contact Our Team</h2>
-            <div class="accent-line"></div>
+            <h2 >Contact  Us</h2>
         </div>
-
-        <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px;">
-            
-            <div class="info-sidebar" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <div class="contact-card">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Contact Information</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Expect a response from our professional team within 24 business hours.</p>
-
-                    <div class="info-list">
-                        <div class="info-item" style="display: flex; gap: 15px; margin-bottom: 20px;">
-                            <ion-icon name="time-outline" style="font-size: 1.5rem; color: red;"></ion-icon>
-                            <div>
-                                <strong style="font-size: 1rem; display: block;">Business Hours</strong>
-                                <p style="margin: 0;">6:00 AM - 5:00 PM (Daily)</p>
-                            </div>
-                        </div>
-
-                        <div class="info-item" style="display: flex; gap: 15px;">
-                            <ion-icon name="call-outline" style="font-size: 1.5rem; color: red;"></ion-icon>
-                            <div>
-                                <strong style="font-size: 1rem; display: block;">Phone Lines</strong>
-                                <p style="margin: 0;">+263 788 158 614<br>+263 784 664 658</p>
-                            </div>
-                        </div>                        
-                    </div>
-                </div>
-
-                <div class="branch-locations" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px;">
-                    <div class="map-box" style="background: #f9f9f9; padding: 10px; border-radius: 8px;">
-                        <span class="branch-label" style="display: block; font-weight: bold; font-size: 0.8rem; margin-bottom: 5px;">Mutare Branch</span>
+        <div class="contact-grid">
+            <aside class="info-sidebar">
+                <h3 style="font-size: 1.75rem; margin: 0 0 30px 0; letter-spacing: -0.5px;">Our Branches</h3>
+                
+                <div class="branch-card">
+                    <h4><ion-icon name="location" style="color: var(--primary-red);"></ion-icon> Mutare Branch</h4>
+                    <div class="map-preview">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60065.75336052807!2d32.61869894863281!3d-18.971189999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eb5947a19266787%3A0x86134a621183c27e!2sMutare!5e0!3m2!1sen!2szw!4v1710000000000!5m2!1sen!2szw" 
-                            style="width: 100%; height: 120px; border: none; border-radius: 5px;" allowfullscreen="" loading="lazy"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15194.2764959146!2d32.651!3d-18.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x192d302a82352219%3A0xc09549f692025e14!2sMutare!5e0!3m2!1sen!2szw!4v1700000000000" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-
-                    
+                    <p style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 12px;">Main branch, 22 Second Street Mutare</p>
+                    <a href="https://maps.google.com/?q=Mutare+Zimbabwe" target="_blank" class="view-map-btn">
+                        <span>DIRECTIONS</span>
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </a>
                 </div>
-            </div>
 
-            <div class="form-container" style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <form action="https://formspree.io/f/mvzgeooq" method="POST" id="contact-form">
-                    <h3 style="margin-bottom: 25px; ">Send us a Message</h3>
-                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="input-group" style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Full Name</label>
-                            <input type="text" name="name" placeholder="e.g. John Doe" required style="width: 100%; padding: 12px; border: 0.4px solid red; border-radius: 6px;">
-                        </div> 
-                        <div class="input-group" style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 600;">Email Address</label>
-                            <input type="email" name="email" placeholder="yourname@gmail.com" required style="width: 100%; padding: 12px; border: 0.4px solid red; border-radius: 6px;">
+                <div class="branch-card" style="border-style: dashed; border-color: rgba(255,255,255,0.2);">
+                    <h4 style="flex-wrap: wrap;">
+                        <ion-icon name="construct-outline"></ion-icon> 
+                        Wengezi Branch
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </h4>
+                    <div class="map-preview" style="display: flex; align-items: center; justify-content: center; background: #1a1a1a;">
+                         <ion-icon name="map-outline" style="font-size: 3rem; color: #333;"></ion-icon>
+                    </div>
+                    <p style="color: #9ca3af; font-size: 0.9rem;">Expansion in progress! We are preparing to bring our services closer to the Wengezi community.</p>
+                </div>
+
+                <div style="margin-top: 30px; padding: 24px; background: rgba(235, 4, 12, 0.1); border-radius: 24px; border: 1px solid rgba(227, 30, 36, 0.2);">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: var(--primary-red); padding: 12px; border-radius: 12px; display: flex;">
+                            <ion-icon name="call" style="color: white; font-size: 1.5rem; "></ion-icon>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.7rem; color: var(--primary-red); font-weight: 800; margin: 0;  text-transform: uppercase;">Customer Support</p>
+                            <p style="font-weight: 700; margin: 2px 0 0 0; font-size: 1.1rem; "><a href="tel:+263788158614" target="_blank" style="color: white; text-decoration: none;" >+263 788 158 614</a></p>
+                            <p style="font-weight: 700; margin: 0; font-size: 1.1rem;"><a href="tel:+263784664658" target="_blank" style="text-decoration: none; color: white;">+263 784 664 658</a></p>
                         </div>
                     </div>
+                </div>
+            </aside>
+
+            <div class="form-container">
+                <form id="contact-form" >
+                    <h3 style="font-size: 1.8rem; margin-bottom: 35px; font-weight: 700;">Direct Message</h3>
                     
-                    <div class="input-group" style="margin-bottom: 25px;">
-                        <label style="display: block; margin-bottom: 8px; font-weight: 600;">Message</label>
-                        <textarea name="message" placeholder="How can we assist you today?" rows="8" required style="width: 100%; padding: 12px; border: 0.4px solid red; border-radius: 6px;"></textarea>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="email@example.com" required>
+                        </div>
                     </div>
-                    
-                    <button type="submit" class="btn-submit" style="width: 100%; padding: 15px; background: #e31e24; color: white; border: none; border-radius: 6px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;">
+
+                    <div class="input-group">
+                        <label>How can we help?</label>
+                        <textarea name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
                         <span>Send Message</span>
                         <ion-icon name="paper-plane"></ion-icon>
                     </button>
+
+                    
+</form>
+
+
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-
-    <footer class="main-footer">
+<footer class="main-footer">
     <div class="container footer-grid">
         <div class="footer-col">
             <h3>Diamond Motor Spares</h3>
             <p>We don't wait for the future. We keep you moving with quality parts and expert service.</p>
             <p class="footer-trademark">"We Give You More For Your Budget"</p>
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61573806653387&sk=following" target="_blank"><i style="color: blue; background-color: white; border-radius: 100%;"  class="fa-brands fa-facebook"></i></i> Facebook</a>
-                <a href= "https://wa.me/263784664658?text=Welcome%20to%20Diamond%20Motor%20Spares%20,%20How%20can%20we%20assist%20you?" target="_blank"><i style="color: green; background-color: white; border-radius: 100%;" class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61573806653387&sk=following" target="_blank"><i style="color: blue; border-radius: 100%; font-size: 2rem; background-color: white;"  class="fa-brands fa-facebook"></i></i></a>
+                <a href= "https://wa.me/263784664658?text=Welcome%20to%20Diamond%20Motor%20Spares%20,%20How%20can%20we%20assist%20you?" target="_blank"><i style="color: green; border-radius: 100%; font-size: 2rem; background-color: white;" class="fa-brands fa-whatsapp"></i></a>
                 
             </div>
         </div>
@@ -334,18 +493,18 @@
         <div class="footer-col">
             <h4>Quick Links</h4>
             <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/gallery">Gallery</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
 
         <div class="footer-col">
             <h4>Our Locations</h4>
             <ul>
-                <li><a href="#">Mutare Branch</a></li>
+                <li><a href="https://share.google/9UWCyQTBBN7bFjnBg" target="_blank">Mutare Branch</a></li>
                 <li><a href="#">Wengezi Branch</a></li>
                 <li><a href="#">New Branches (Coming Soon)</a></li>
             </ul>
@@ -354,10 +513,12 @@
 
         <div class="footer-col">
             <h4>Contact Information</h4>
-            <p><i class="fas fa-map-marker-alt"></i> Mutare & Wengezi, Zimbabwe</p>
+            <p><i class="fas fa-map-marker-alt"></i><a href="https://share.google/9UWCyQTBBN7bFjnBg" style="color: white; text-decoration: none;" target="_blank">Mutare</a> & <a href="#" style="color: white; text-decoration: none;" target="_blank" >Wengezi</a>, Zimbabwe</p>
             <p><i class="fas fa-envelope"></i> info@diamondmotorspares.com</p>
-            <p><i class="fas fa-phone"></i> +263 788 158 614</p>
-            <p><i class="fas fa-phone"></i> +263 784 664 658</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+263788158614" style="text-decoration: none; color: white;" target="_blank">+263 788 158 614</a></p>
+            <p><i class="fas fa-phone"></i><a href="tel:+263784664658" style="text-decoration: none; color: white;" target="_blank">+263 784 664 658</a></p>
+            
+
         </div>
 
     </div>
@@ -367,6 +528,9 @@
     </div>
 
 
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="/js/script.js"></script>
+</section>    
 </body>
 </html>

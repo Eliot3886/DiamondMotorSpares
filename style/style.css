@@ -1,0 +1,956 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Crucial: This prevents the sticky navbar from covering the section heading */
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  width: 100%;
+  
+}
+
+
+
+/* Nav bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #0c2340;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1000;
+  top: 0;
+  position: sticky;
+  color: white;
+  height: 100px;
+  border-radius: 20px;
+}
+/* Container for the logo and H1 */
+.logo h1 {
+  display: flex;
+  align-items: center; /* Centers image and text vertically */
+  gap: 12px;           /* Space between image and text */
+  font-size: 1.5rem;   /* Adjust size as needed */
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: white;         /* Main text color */
+  margin: 0;
+}
+
+/* Style the Image */
+.logo img {
+  height: 40px;        /* Consistent height */
+  width: auto;         /* Maintain aspect ratio */
+  object-fit: contain;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+  border-radius: 30%;
+}
+
+/* The 'MOTOR SPARES' part (The Span) */
+.logo h1 span {
+  color: red;      /* A metallic gold or 'Diamond' yellow */
+  font-weight: 800;    /* Lighter weight for contrast */
+  text-transform: uppercase;
+  font-size: 1.5rem;    /* Slightly smaller than 'DIAMOND' */
+}
+
+/* Hide Checkbox */
+.menu-toggle { display: none; }
+
+/* Hamburger Styling */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+/* Desktop Navigation */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+.nav-links li a {
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+.nav-links li a:hover{
+    color: red;
+    background-color: white;
+    border-radius: 25px;
+    transform: translateY(-3px);
+    font-size: 1.4rem;
+
+}
+
+/* Mobile Specifics (The Animation Part) */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #142d4c;
+    padding: 2rem;
+    text-align: center;
+    
+    /* Animation Properties */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px); 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+
+  /* When checkbox is checked, show the menu */
+  .menu-toggle:checked ~ .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Bonus: Animate Hamburger to an "X" */
+  .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+}   
+/* Hero Section */
+/* Apply the new font globally */
+.hero {
+    height: 100vh; /* Full screen height */
+    background: linear-gradient(rgba(12, 35, 64, 0.75), rgba(12, 35, 64, 0.75)), 
+                url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: fadeInUp 1s ease-out; /* Smooth entrance */
+}
+
+/* HIGH-END TYPOGRAPHY */
+.hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Scales perfectly on all screens */
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    font-weight: 400;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* BUTTON STYLING */
+.btn {
+    display: inline-block;
+    padding: 16px 36px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 8px; /* Slightly rounded for a modern look */
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* The Main CTA Button */
+.btn:not(.btn-whatsapp) {
+    background: #d4af37; /* Metallic Gold */
+    color: #0c2340;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* The WhatsApp Button */
+.btn-whatsapp {
+    background: rgba(37, 211, 102, 0.1); /* Subtle glass effect */
+    color: #25D366;
+    border: 2px solid #25D366;
+    backdrop-filter: blur(5px);
+}
+
+/* Hover States */
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.btn-whatsapp:hover {
+    background: #25D366;
+    color: white;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.about-section {
+    padding: 80px 5%;
+    background-color: #ffffff;
+    overflow: hidden; /* Prevent any internal elements from causing scroll */
+    top: 0;
+    height: 100%;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Heading Styling */
+.about-section h2 {
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.underline {
+    width: 60px;
+    height: 4px;
+    background: #d4af37;
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+.trademark {
+    text-align: center;
+    color: #d4af37;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+}
+
+/* Responsive Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Text gets more space on desktop */
+    gap: 50px;
+    align-items: start;
+}
+
+.about-text p {
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/* Feature Side Styling */
+.about-features {
+    background: #f8f9fa;
+    padding: 35px;
+    border-radius: 20px;
+    border-left: 5px solid #d4af37;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.feature-item h4 {
+    color: #0c2340;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-item h4 i {
+    color: #d4af37;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.brand-promise {
+    margin-top: 30px;
+    background: #0c2340;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack on tablet and mobile */
+        gap: 40px;
+    }
+
+    .about-section {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section h2 {
+        font-size: 2rem;
+    }
+    
+    .about-features {
+        padding: 20px; /* Less padding on small phones to save space */
+    }
+}
+
+/* Contact */
+
+
+/* Gallery Page*/
+    #gallery {
+        background-color: #142d4c; /* Dark Navy Background */
+        padding: 100px 0;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+    }
+
+    #gallery h2 {
+        color: #ffffff;
+        text-align: center;
+        font-size: 2.1rem;
+        letter-spacing: -1px;
+        margin-bottom: 5px;
+    }
+
+    .gallery-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .underline-premium {
+        width: 50px;
+        height: 5px;
+        background: linear-gradient(90deg, #e31e24, #ff4d4d);
+        margin: 15px auto;
+        border-radius: 10px;
+    }
+
+    .trademark-gold {
+        color: #adb5bd;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+    }
+
+    /* Bento Box Grid Layout */
+    .photo-grid-premium {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 300px);
+        gap: 20px;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Making some items larger for a premium look */
+    .item-large { grid-column: span 2; grid-row: span 2; }
+    .item-tall { grid-row: span 2; }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s cubic-bezier(0.15, 0.83, 0.66, 1);
+    }
+
+    /* The High-End Overlay */
+    .overlay-premium {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(12, 35, 64, 0.9) 0%, rgba(227, 30, 36, 0.2) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .overlay-premium h4 {
+        color: #ffffff;
+        font-size: 1.5rem;
+        margin: 0;
+        transform: translateY(20px);
+        transition: transform 0.4s ease;
+    }
+
+    .overlay-premium .category-tag {
+        color: #e31e24;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    /* Hover States */
+    .gallery-item:hover img {
+        transform: scale(1.15);
+    }
+
+    .gallery-item:hover .overlay-premium {
+        opacity: 1;
+    }
+
+    .gallery-item:hover h4 {
+        transform: translateY(0);
+    }
+
+    /* Shine effect animation */
+    .gallery-item::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 50%; height: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 100%);
+        transform: skewX(-25deg);
+        transition: 0.75s;
+    }
+
+    .gallery-item:hover::after {
+        left: 125%;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+        .photo-grid-premium {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+        }
+        .item-large, .item-tall { grid-column: span 1; grid-row: span 1; }
+    }
+
+
+footer {
+    border-top: 0.02px solid white; /* The "HR" line */
+    padding: 10px 0;
+    background-color: #0c2340;    /* Optional: change to match your brand */
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 0.9rem;
+}
+
+
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Gives more room to the story */
+    gap: 40px;
+    align-items: start;
+}
+
+.feature-item {
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: 4px solid #0056b3; /* Or your brand color */
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* About Page */
+    .about-section {
+        background-color: #142d4c; /* Light Navy */
+        color: #ffffff;
+        padding:0px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-top: 7%;
+        border-top: white solid 10px;
+        	
+
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0px;
+    }
+
+    h2 {
+        color: #ffffff;
+        font-size: 1.9rem;
+        margin-top: 0px;
+        letter-spacing: 1px;
+        padding-top: 0;
+    }
+
+    .underline {
+        width: 80px;
+        height: 4px;
+        background-color: #e31e24; /* Primary Red */
+        margin-bottom: 20px;
+    }
+
+    .trademark {
+        color: #e31e24; /* Red accent */
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        font-weight: 600;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 50px;
+        align-items: start;
+    }
+
+    .about-text p {
+        line-height: 1.8;
+        font-size: 1.05rem;
+        margin-bottom: 20px;
+        color: #e0e0e0;
+    }
+
+    .about-text h3 {
+        color: #ffffff;
+        margin-top: 30px;
+        border-left: 4px solid #e31e24;
+        padding-left: 15px;
+    }
+
+    /* Feature Box Styling */
+    .about-features {
+        background-color: #ffffff; /* Contrast White */
+        color: #0c2340;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .feature-item h4 {
+        color: #e31e24;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .feature-list li {
+        margin-bottom: 12px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .feature-list li::before {
+        content: "✔";
+        position: absolute;
+        left: 0;
+        color: #e31e24;
+        font-weight: bold;
+    }
+
+    .brand-promise {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        border-top: 3px solid #e31e24;
+        text-align: center;
+    }
+
+    .brand-promise strong {
+        color: #e31e24;
+        font-size: 1.1rem;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .about-grid {
+            grid-template-columns: 1fr;
+        }
+        h2 { font-size: 2rem; }
+    }
+
+    /*Products Page*/
+:root {
+    --primary-color: #e63946; /* Sporty Red */
+    --dark-bg: #1a1a1a;
+    --text-main: #333;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.py-5 h1{
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Scales perfectly on all screens */
+    font-weight: 200;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    text-align: center;
+    padding-top: 45px;
+}
+
+
+/* Sidebar Styling */
+.filter-box {
+    border: none;
+    border-radius: 12px;
+    background: #f8f9fa;
+    padding: 25px !important;
+}
+
+.filter-box h5 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    color: var(--dark-bg);
+}
+
+.category-list li a {
+    text-decoration: none;
+    color: #666;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.category-list li a:hover {
+    color: var(--primary-color);
+    padding-left: 10px;
+}
+
+/* Product Grid Enhancement */
+.product-grid-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* The Card Transformation */
+.product-card-dedicated {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 40px 25px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card-dedicated:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    border-color: var(--primary-color);
+}
+
+/* Icon Styling */
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: #fff5f5;
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    transition: 0.3s ease;
+}
+
+.product-card-dedicated:hover .icon-wrapper {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Typography & Button */
+.product-card-dedicated h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.product-card-dedicated p {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+.btn-inquire {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-inquire:hover {
+    background: var(--primary-color);
+    color: #fff;
+}  
+
+
+/* Footer Page */
+.main-footer {
+    background-color: #0c2340; /* Sleek metallic depth */
+    color: #ffffff;
+    padding: 80px 0 20px 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    border-top: 1px solid red; /* Professional blue accent top border */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Column Headers */
+.footer-col h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #e31e24; /* Matching your blue theme */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* Underline effect for headers */
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background: #e31e24;
+}
+
+/* Paragraphs & Trademark */
+.footer-col p {
+    line-height: 1.8;
+    color: #cbd5e1;
+    margin-bottom: 15px;
+}
+
+.footer-trademark {
+    font-style: italic;
+    font-weight: 600;
+    color: red !important; /* Brightens the budget slogan */
+    padding: 10px 15px;
+    background: #142d4c;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Links & Lists */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-col ul li a:hover {
+    color: white;
+    transform: translateX(10px); /* Smooth slide effect */
+}
+
+/* Social Links - Keeping your inline styles but enhancing the container */
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-links a i {
+    padding: 8px; /* Making your inline-styled icons look like buttons */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-radius: 50%;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+    transform: translateY(-3px);
+}
+
+/* Contact Info Styling */
+.footer-col i.fas {
+    color: red; /* Blue icons for contact info */
+    width: 25px;
+}
+
+/* Bottom Copyright Section */
+.footer-bottom {
+    margin-top: 60px;
+    padding: 25px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: white;
+    margin: 0;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .footer-grid {
+        text-align: center;
+    }
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .footer-col ul li a {
+        justify-content: center;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}
+
+    
+.info-sidebar, .form-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    cursor: pointer;
+}
+.info-sidebar:hover, .form-container:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+        }
+    
+
+ 
+        
