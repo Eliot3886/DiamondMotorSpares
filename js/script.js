@@ -28,12 +28,15 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     const templateID = 'template_f69k8qv'; // e.g., template_xxxx
 
     // Prepare the template parameters
-    const templateParams = {
-        name: this.name.value,
-        email: this.email.value,
-        message: this.message.value,
-        time: timeString
-    };
+// Prepare the template parameters to match your EmailJS Template
+const templateParams = {
+    name: this.name.value,
+    email: this.email.value,
+    tel: this.tel.value,        // Matches {{tel}} in your template
+    service: this.service.value, // Matches {{service}} in your template
+    message: this.message.value,
+    time: timeString            // Matches {{time}} in your template
+};
 
     emailjs.send(serviceID, templateID, templateParams)
         .then(() => {
@@ -68,3 +71,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex'; // Shows the Request Quote form
+    }
+}
+
+// Optional: Close modal when clicking outside of it
+
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+// Optional: Close modal if user clicks anywhere outside of the form box
+window.onclick = function(event) {
+    let modal = document.getElementById('quoteModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

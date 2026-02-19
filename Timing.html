@@ -30,6 +30,15 @@
             border-bottom: 5px solid var(--primary-red);
             position: sticky;
         }
+                .engine-header {
+           position: -webkit-sticky; /* Support for Safari */
+           position: sticky;
+           top: 0;
+           z-index: 1000; /* Keeps it above other content */
+           background-color: #ffffff; /* Ensure it's not transparent when scrolling */
+           box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional: adds depth */
+        }
+        
 
         /* Breadcrumb styling */
         .breadcrumb-item a { color: white; font-size: 1.3rem; text-decoration: none; transition: transform 0.25s ease, color 0.25s ease;}
@@ -139,23 +148,85 @@
             font-weight: bold;
             z-index: 2;
         }
+        .whatsapp-float:hover {
+    transform: scale(1.1); /* Slightly grows when you hover */
+    background-color: #128c7e; /* Darker green on hover */
+    box-shadow: 0px 8px 25px rgba(37, 211, 102, 0.7);
+}
+
+
+/* Position the notification badge */
+.whatsapp-notify {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #d90429; /* Red color matching your theme */
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    /* Apply the animation */
+    animation: pulse-red 2s infinite;
+}
+
+/* The Pulsing Animation Logic */
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(217, 4, 41, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(217, 4, 41, 0);
+    }
+}
+
+/* Ensure the main button is positioned relatively so badge stays inside */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    z-index: 10000;
+    text-decoration: none;
+    box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.5);
+} 
     </style>
 </head>
 <body>
 
-    <header class="engine-header text-center">
-        <div class="container">
-            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="index.html#dedicated-products">Products</a></li>
-                    <li class="breadcrumb-item active">Timing Components</li>
-                </ol>
-            </nav>
-            <h1 class="display-4 fw-bold">TIMING COMPONENTS</h1>
-            <p class="lead"><i>"We give more for your budget"</i></p>
-        </div>
-    </header>
+<header class="engine-header text-center py-5">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.html#dedicated-products">Products</a></li>
+                <li class="breadcrumb-item active">Timing Components</li>
+            </ol>
+        </nav>
+        <h1 class="display-4 fw-bold">TIMING COMPONENTS</h1>
+        <p class="lead"><i>"We give more for your budget"</i></p>
+        
+    </div>
+</header>
 
     <section class="py-5">
         <div class="container">
@@ -256,7 +327,7 @@
                     <figure class="part-card shadow-sm h-100">
                         <span class="stock-badge"><i class="fas fa-check me-1"></i> IN STOCK</span>
                         <div class="img-container">
-                            <img src="https://www.nicepng.com/png/full/80-805690_timing-chain-chain-car.png" alt="Timing Chain Guide" class="img-fluid">
+                            <img src="https://5.imimg.com/data5/WG/JI/TB/SELLER-29626894/honda-chain-kit-and-timing-chain-250x250.jpg" alt="Timing Chain Guide" class="img-fluid">
                         </div>
                         <div class="part-info text-center">
                             <figcaption class="part-title">Timing Chain Guide</figcaption>
@@ -302,7 +373,9 @@
                     </figure>
                 </div>                
             </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<a href="https://wa.me/263784664658?text=Hello%20Diamond%20Motor%20Spares" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-notify">1</span>
+</a>
 </body>
 </html>
