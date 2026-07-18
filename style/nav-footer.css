@@ -1,0 +1,684 @@
+/* Common Stylesheet for Navigation and Footer - Diamond Motor Spares */
+
+:root {
+    --brand-navy: #0c2340;
+    --brand-red: #e31e24;
+    --site-font: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ============================================================
+   NAVIGATION BAR
+   ============================================================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    background-color: var(--brand-navy);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Shortened consistent height */
+    z-index: 10000;
+    color: white;
+    border-radius: 0;
+    font-family: var(--site-font);
+    box-sizing: border-box;
+}
+
+/* Container for the logo and H1 */
+.navbar .logo h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the Image */
+.navbar .logo img {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    border-radius: 30%;
+}
+
+/* The 'MOTOR SPARES' part (The Span) */
+.navbar .logo h1 span {
+    color: var(--brand-red); /* Red accent */
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e31e24; /* Red accent line */
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #e31e24;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* ============================================================
+   MOBILE NAVIGATION (HAMBURGER TOGGLE)
+   ============================================================ */
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 10001;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive Menu Styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px; /* navbar height */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #0c2340;
+        padding: 1.5rem 0;
+        gap: 1.2rem;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+        /* Animation properties */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* When checkbox is checked, show the menu */
+    .menu-toggle:checked ~ .nav-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Animate Hamburger to an "X" */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* ============================================================
+   PROFESSIONAL FOOTER
+   ============================================================ */
+.main-footer {
+    background: linear-gradient(160deg, #0a1d35 0%, #0c2340 60%, #111f38 100%);
+    color: #cdd8e8;
+    font-family: var(--site-font);
+    border-top: 3px solid var(--brand-red);
+    padding: 0 0 max(24px, env(safe-area-inset-bottom));
+    text-align: left;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: auto;
+    box-sizing: border-box;
+}
+
+.main-footer p {
+    margin: 0;
+    font-family: var(--site-font);
+    color: #cdd8e8;
+}
+
+/* TOP SECTION */
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 30px 40px;
+}
+
+@media (max-width: 900px) {
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 20px 30px;
+    }
+}
+
+/* BRAND COLUMN */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo img {
+    height: 40px;
+    width: auto;
+    border-radius: 6px;
+}
+
+.footer-logo span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    letter-spacing: 0.3px;
+}
+
+.footer-logo strong {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.footer-tagline {
+    font-size: 0.82rem;
+    color: #8fa5c4;
+    line-height: 1.65;
+    max-width: 320px;
+}
+
+.footer-trademark {
+    font-style: italic;
+    font-weight: 700;
+    color: #e31e24 !important;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    background: rgba(227, 30, 36, 0.1);
+    border-left: 3px solid #e31e24;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0;
+    max-width: 250px;
+}
+
+/* SOCIAL BUTTONS */
+.footer-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.social-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-btn.facebook {
+    background: #1877f2;
+    color: white;
+}
+
+.social-btn.facebook:hover {
+    background: transparent;
+    border-color: #1877f2;
+    color: #1877f2;
+    transform: translateY(-3px);
+}
+
+.social-btn.whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+.social-btn.whatsapp:hover {
+    background: transparent;
+    border-color: #25d366;
+    color: #25d366;
+    transform: translateY(-3px);
+}
+
+/* LINKS GROUP */
+.footer-links-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 700px) {
+    .footer-links-group {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+.footer-links-col h4.footer-heading {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #e31e24;
+    margin: 0 0 20px 0;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-links-col h4.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #e31e24;
+    border-radius: 2px;
+}
+
+.footer-links-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links-col ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links-col ul li a {
+    color: #8fa5c4;
+    text-decoration: none;
+    font-size: 0.83rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+}
+
+.footer-links-col ul li a i {
+    font-size: 0.65rem;
+    color: #e31e24;
+    flex-shrink: 0;
+}
+
+.footer-links-col ul li a:hover {
+    color: #ffffff;
+    transform: translateX(6px);
+}
+
+/* CONTACT LIST (no hover translate) */
+.footer-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #8fa5c4;
+    font-size: 0.83rem;
+}
+
+.footer-contact-list li i {
+    color: #e31e24;
+    margin-top: 3px;
+    width: 14px;
+    flex-shrink: 0;
+}
+
+.footer-contact-list li a,
+.footer-contact-list li span {
+    color: #8fa5c4;
+    text-decoration: none;
+    transition: color 0.25s;
+}
+
+.footer-contact-list li a:hover {
+    color: #ffffff;
+}
+
+/* BOTTOM STRIP */
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.35);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #607899;
+    margin: 0;
+}
+
+.footer-credit {
+    font-size: 0.8rem !important;
+    color: #607899 !important;
+}
+
+.footer-credit strong {
+    color: #94afc9;
+}
+
+@media (max-width: 600px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ============================================================
+   WHATSAPP FLOATING ACTION BUTTON (Component Subpages)
+   Desktop: icon + text, bottom-left
+   Mobile:  icon only
+   ============================================================ */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    left: auto;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 11px 18px 11px 14px;
+    border-radius: 50px;
+    box-shadow: 0 4px 18px rgba(37,211,102,0.4);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    animation: whatsapp-attention 2.8s ease-in-out infinite;
+}
+.whatsapp-fab:hover {
+    background: #1ebe5d;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.55);
+    transform: translateY(-2px);
+    color: #fff;
+    text-decoration: none;
+}
+.whatsapp-fab-icon { font-size: 1.35rem; line-height: 1; }
+.whatsapp-fab-text { white-space: nowrap; }
+
+@media (max-width: 768px) {
+    .whatsapp-fab {
+        padding: 13px;
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        justify-content: center;
+        bottom: 20px;
+        right: 16px;
+        left: auto;
+    }
+    .whatsapp-fab-text { display: none; }
+    .whatsapp-fab-icon { font-size: 1.6rem; }
+}
+
+@keyframes whatsapp-attention {
+    0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.4); }
+    45% { box-shadow: 0 4px 18px rgba(37,211,102,0.4), 0 0 0 7px rgba(37,211,102,0); }
+    55% { box-shadow: 0 4px 22px rgba(37,211,102,0.62), 0 0 0 2px rgba(37,211,102,0.22); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-fab { animation: none; }
+}
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 92px;
+    z-index: 9998;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(12,35,64,.1);
+    border-radius: 50%;
+    background: #fff;
+    color: #0c2340;
+    box-shadow: 0 10px 24px rgba(12,35,64,.16);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease;
+}
+.back-to-top:hover { background: #0c2340; color: #fff; }
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+@media (max-width: 768px) { .back-to-top { right: 21px; bottom: 84px; width: 38px; height: 38px; } }
+
+/* Shared component-page header and product spacing. */
+body.component-page .engine-header {
+    position: static !important;
+    padding: 36px 20px 8px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    color: #0c2340 !important;
+}
+body.component-page .engine-header .breadcrumb,
+body.component-page .engine-header .lead { display: none; }
+body.component-page .engine-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0 0 8px;
+}
+body.component-page .engine-header .container::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 0 auto;
+    border-radius: 2px;
+    background: #e31e24;
+}
+body.component-page .py-5 { padding-top: 2.25rem !important; }
+body.component-page .py-5 .border-bottom { margin-bottom: 2rem !important; }
+
+@media (max-width: 768px) {
+    /* A two-column grid prevents the menu icon and logo from wrapping onto
+       separate rows on narrow devices. The icon is always the right column. */
+    .navbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 26px;
+        column-gap: 12px;
+        justify-content: initial;
+        height: 70px;
+        padding: 0 16px;
+    }
+    .navbar .hamburger {
+        grid-column: 2;
+        grid-row: 1;
+        order: initial;
+        flex-shrink: 0;
+    }
+    .navbar .logo { grid-column: 1; grid-row: 1; min-width: 0; }
+    .navbar .logo h1 { font-size: clamp(0.78rem, 3.6vw, 0.95rem); gap: 6px; white-space: nowrap; }
+    .navbar .logo h1 span { font-size: inherit; }
+    .navbar .logo img { height: 30px; flex-shrink: 0; }
+    .navbar .nav-links { grid-column: 1 / -1; }
+    body.component-page .engine-header { padding: 24px 16px 6px !important; }
+    body.component-page .engine-header h1 { font-size: 1.5rem; }
+}
+
+/* Component pages should never leave a blank band below their footer. */
+body.component-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Keep every product-page footer identical to the Engine & Gearbox page:
+   a full-width final section that cannot shrink or reveal a page-colour gap. */
+body.component-page > .main-footer,
+body.component-page .main-footer {
+    width: 100%;
+    align-self: stretch;
+    margin: auto 0 0;
+    flex: 0 0 auto;
+    min-height: 0;
+    background: linear-gradient(160deg, #0a1d35 0%, #0c2340 60%, #111f38 100%);
+}
+body.component-page > .main-footer { display: block; }
+
+/* Premium product-page presentation shared by every component category. */
+body.component-page { background: #f6f8fb; color: #26364a; }
+body.component-page .py-5 > .container { max-width: 1200px; }
+body.component-page .part-card {
+    border: 1px solid #e6ebf1;
+    border-radius: 16px;
+    box-shadow: 0 7px 22px rgba(12,35,64,.06);
+}
+body.component-page .part-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 38px rgba(12,35,64,.14);
+}
+body.component-page .img-container { background: linear-gradient(145deg, #fff, #f1f5f9); height: 175px; }
+body.component-page .img-container img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+body.component-page .part-info { padding: 16px; }
+body.component-page .part-title { color: #0c2340; font-size: 1.04rem; }
+body.component-page .part-sku { margin-bottom: 13px; font-size: .72rem; }
+body.component-page .btn-inquire { border-radius: 8px; padding: 8px 14px; }
+body.component-page .stock-badge { box-shadow: 0 4px 12px rgba(12,35,64,.08); }
+body.component-page .border-bottom { border-color: #dfe6ee !important; }
+
+@media (max-width: 576px) {
+    body.component-page .py-5 { padding: 2rem 0 !important; }
+    body.component-page .py-5 > .container { padding-left: 16px; padding-right: 16px; }
+    body.component-page .py-5 .border-bottom { gap: 12px; align-items: flex-start !important; }
+    body.component-page .img-container { height: 150px; }
+}
+
+/* ============================================================
+   COMPONENT PAGE CATEGORY TITLE
+   Replaces the blue engine-header section on subpages
+   ============================================================ */
+.page-category-title {
+    text-align: center;
+    padding: 36px 20px 8px 20px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-category-title h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0c2340;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.page-category-title .title-underline {
+    width: 60px;
+    height: 3px;
+    background: #e31e24;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+@media (max-width: 576px) {
+    .page-category-title h1 {
+        font-size: 1.5rem;
+    }
+    .page-category-title {
+        padding: 24px 16px 6px 16px;
+    }
+}

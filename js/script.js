@@ -10,12 +10,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-(function() {
-    // Your Public Key you just provided
+if (typeof emailjs !== 'undefined') {
     emailjs.init("XTyZeMzltp00mJ7uX");
-})();
+}
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
 
@@ -46,6 +48,7 @@ const templateParams = {
             alert('Failed to reach Diamond Motor Spares. Error:' + JSON.stringify(err));
         });
 });
+}
 //Search Bar
 
 // This "DOMContentLoaded" wrapper is the fix for the Null error
@@ -95,3 +98,49 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+// Close the mobile navigation as soon as a destination is chosen. This also
+// covers links that navigate to another page and links that scroll on the home page.
+document.querySelectorAll('.nav-links a').forEach((link) => {
+    link.addEventListener('click', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (menuToggle) menuToggle.checked = false;
+    });
+});
+
+// Lightweight, progressive enhancement for premium page transitions.
+// Content remains visible if JavaScript is unavailable.
+const revealTargets = document.querySelectorAll(
+    '.trust-strip, .confidence-section, #dedicated-products, .testimonials-section, .quote-banner, .contact-wrapper, body.component-page .part-card'
+);
+
+if ('IntersectionObserver' in window) {
+    revealTargets.forEach((element) => element.classList.add('reveal-on-scroll'));
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    revealTargets.forEach((element) => revealObserver.observe(element));
+}
+
+// Defer below-the-fold catalogue imagery without delaying the first impression.
+document.querySelectorAll('img.img-fluid').forEach((image) => {
+    image.loading = 'lazy';
+    image.decoding = 'async';
+});
+
+const backToTop = document.createElement('button');
+backToTop.type = 'button';
+backToTop.className = 'back-to-top';
+backToTop.setAttribute('aria-label', 'Back to top');
+backToTop.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+document.body.appendChild(backToTop);
+
+window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('is-visible', window.scrollY > 500);
+}, { passive: true });

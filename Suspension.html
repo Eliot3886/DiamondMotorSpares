@@ -7,9 +7,10 @@
     <link rel="icon" type="image/png" href="/images/logo.png">   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style/nav-footer.css">
     
     <style>
-        :root {
+:root {
             --primary-red: #e31e24;
             --dark-bg: #121212;
             --card-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -26,7 +27,7 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 80px 0;
+            padding: 40px 0;
             border-bottom: 5px solid var(--primary-red);
             position: sticky;
         }
@@ -40,10 +41,10 @@
         }
 
         /* Breadcrumb styling */
-        .breadcrumb-item a { color: white; font-size: 1.3rem; text-decoration: none; transition: transform 0.25s ease, color 0.25s ease;}
-    .breadcrumb-item a:hover { color: red; background-color: white; border-radius: 25px; transform: translateY(-3px); font-size: 1.32rem;
+        .breadcrumb-item a { color: white; font-size: 1rem; text-decoration: none; transition: transform 0.25s ease, color 0.25s ease;}
+    .breadcrumb-item a:hover { color: red; background-color: white; border-radius: 25px; transform: translateY(-3px); font-size: 1.05rem;
     }
-        .breadcrumb-item.active { color: var(--primary-red); font-size: 1.3rem; text-decoration: none; transition: transform 0.25s ease, color 0.25s ease;}
+        .breadcrumb-item.active { color: var(--primary-red); font-size: 1rem; text-decoration: none; transition: transform 0.25s ease, color 0.25s ease;}
 
         /* Part Card Styling */
         .part-card {
@@ -77,11 +78,11 @@
         /* Image Container */
         .img-container {
             background: #fdfdfd;
-            padding: 30px;
+            padding: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 220px;
+            height: 160px;
         }
 
         .img-container img {
@@ -95,12 +96,12 @@
 
         /* Content Styling */
         .part-info {
-            padding: 20px;
+            padding: 12px;
             background: white;
         }
 
         .part-title {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #222;
             margin-bottom: 5px;
@@ -120,8 +121,9 @@
             background-color: #0c2340;
             color: white;
             border-radius: 50px;
-            padding: 8px 25px;
+            padding: 6px 18px;
             font-weight: 600;
+            font-size: 0.85rem;
             transition: 0.3s;
             border: 2px solid var(--dark-bg);
             width: 100%;
@@ -147,11 +149,7 @@
             font-weight: bold;
             z-index: 2;
         }
-       .whatsapp-float:hover {
-    transform: scale(1.1); /* Slightly grows when you hover */
-    background-color: #128c7e; /* Darker green on hover */
-    box-shadow: 0px 8px 25px rgba(37, 211, 102, 0.7);
-}
+       
 
 
 /* Position the notification badge */
@@ -191,26 +189,49 @@
 }
 
 /* Ensure the main button is positioned relatively so badge stays inside */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 65px;
-    height: 65px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-    z-index: 10000;
-    text-decoration: none;
-    box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.5);
-} 
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10000;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float i {
+            font-size: 20px;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05) translateY(-3px);
+            background-color: #128c7e;
+            box-shadow: 0px 8px 25px rgba(37, 211, 102, 0.7);
+        }
+
     </style>
 </head>
-<body>
+<body class="component-page">
+
+    <nav class="navbar">
+        <div class="logo"><h1><img src="images/logo.png" alt="Diamond Motor Spares">DIAMOND <span>MOTOR SPARES</span></h1></div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger" aria-label="Open navigation menu"><span></span><span></span><span></span></label>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li><li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#dedicated-products">Products</a></li><li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <header class="engine-header text-center">
         <div class="container">
@@ -248,8 +269,8 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Shock Absorber</figcaption>
                             <span class="part-sku">SKU: SS-1010</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
@@ -264,8 +285,8 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Control Arms</figcaption>
                             <span class="part-sku">SKU: SS-2022</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
@@ -280,8 +301,8 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Ball Joints</figcaption>
                             <span class="part-sku">SKU: SS-3033</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
@@ -298,8 +319,8 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Stabilizer Link Bar</figcaption>
                             <span class="part-sku">SKU: SS-4044</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
@@ -314,8 +335,8 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Bump stop</figcaption>
                             <span class="part-sku">SKU: SS-5055</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
@@ -330,8 +351,8 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Bushings</figcaption>
                             <span class="part-sku">SKU: SS-6066</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
@@ -346,8 +367,8 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Tie rods</figcaption>
                             <span class="part-sku">SKU: SS-7077</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
@@ -364,18 +385,33 @@
                         <div class="part-info text-center">
                             <figcaption class="part-title">Torsion Bar</figcaption>
                             <span class="part-sku">SKU: SS-8088</span>
-                            <a href="tel:+263788158614" class="btn btn-inquire">
-                                <i class="fas fa-phone-alt me-2"></i>Inquire
+                            <a href="https://wa.me/263784664658?text=Hello,%20I%20am%20inquiring%20about%20Suspension%20Components." target="_blank" class="btn btn-inquire">
+                                <i class="fab fa-whatsapp me-2"></i>Inquire
                             </a>
                         </div>
                     </figure>
                 </div>                
             </div>
 
+    </div>
+    </section>
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo"><img src="images/logo.png" alt="Diamond Motor Spares Logo"><span><strong>Diamond</strong> <strong>Motor Spares</strong></span></div>
+                <p class="footer-tagline">Your trusted partner for quality vehicle parts in Mutare &amp; Wengezi, Zimbabwe. We stock genuine &amp; aftermarket parts for all makes and models.</p>
+                <p class="footer-trademark">&#34;We Give You More For Your Budget&#34;</p>
+                <div class="footer-socials"><a href="https://www.facebook.com/profile.php?id=61573806653387&sk=following" target="_blank" class="social-btn facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="https://wa.me/263784664658?text=Hello%20Diamond%20Motor%20Spares" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></div>
+            </div>
+            <div class="footer-links-group">
+                <div class="footer-links-col"><h4 class="footer-heading">Quick Links</h4><ul><li><a href="index.html#home"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="index.html#about"><i class="fas fa-chevron-right"></i> About Us</a></li><li><a href="index.html#dedicated-products"><i class="fas fa-chevron-right"></i> Products</a></li><li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
+                <div class="footer-links-col"><h4 class="footer-heading">Our Locations</h4><ul><li><a href="https://share.google/9UWCyQTBBN7bFjnBg" target="_blank"><i class="fas fa-map-pin"></i> Mutare Branch</a></li><li><a href="#"><i class="fas fa-map-pin"></i> Wengezi Branch</a></li><li><a href="#"><i class="fas fa-clock"></i> New Branches (Coming Soon)</a></li></ul></div>
+                <div class="footer-links-col"><h4 class="footer-heading">Get In Touch</h4><ul class="footer-contact-list"><li><i class="fas fa-map-marker-alt"></i><span>22 Second Street, Mutare (opp. Central Park Mall)</span></li><li><i class="fas fa-envelope"></i><a href="mailto:info@diamondmotorspares.com">info@diamondmotorspares.com</a></li><li><i class="fas fa-phone"></i><a href="tel:+263788158614">+263 788 158 614</a></li><li><i class="fas fa-phone"></i><a href="tel:+263784664658">+263 784 664 658</a></li></ul></div>
+            </div>
+        </div>
+    </footer>
+    <a href="https://wa.me/263784664658?text=Hello%20Diamond%20Motor%20Spares" class="whatsapp-fab" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp whatsapp-fab-icon"></i><span class="whatsapp-fab-text">Chat on WhatsApp</span></a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<a href="https://wa.me/263784664658?text=Hello%20Diamond%20Motor%20Spares" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-    <span class="whatsapp-notify">1</span>
-</a>    
+    <script src="js/script.js"></script>
 </body>
 </html>
