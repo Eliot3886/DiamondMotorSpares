@@ -176,12 +176,12 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('.reveal-on-scroll').forEach((element) => mobileMotionObserver.observe(element));
 }
 
-// Every page shares a balanced footer ending, including the developer credit.
+// Every page shares a balanced footer ending.
 document.querySelectorAll('.main-footer').forEach((footer) => {
     if (footer.querySelector('.footer-bottom')) return;
     const footerBottom = document.createElement('div');
     footerBottom.className = 'footer-bottom';
-    footerBottom.innerHTML = `<p>&copy; ${new Date().getFullYear()} Diamond Motor Spares. All rights reserved.</p><p class="footer-credit">Developed by <strong>Eliot Chitowamombe</strong></p>`;
+    footerBottom.innerHTML = `<p>&copy; ${new Date().getFullYear()} Diamond Motor Spares. All rights reserved.</p>`;
     footer.appendChild(footerBottom);
 });
 
