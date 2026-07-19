@@ -193,7 +193,9 @@
     color: #cdd8e8;
     font-family: var(--site-font);
     border-top: 3px solid var(--brand-red);
-    padding: 0 0 max(24px, env(safe-area-inset-bottom));
+    /* The final strip owns the bottom spacing so no page-colour band can show
+       beneath the footer on short pages or mobile browser chrome. */
+    padding: 0;
     text-align: left;
     width: 100%;
     max-width: none;
@@ -430,7 +432,7 @@
 .footer-bottom {
     background: rgba(0, 0, 0, 0.35);
     border-top: 1px solid rgba(255, 255, 255, 0.07);
-    padding: 18px 30px;
+    padding: 18px 30px max(18px, env(safe-area-inset-bottom));
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -447,17 +449,36 @@
 .footer-credit {
     font-size: 0.8rem !important;
     color: #607899 !important;
+    letter-spacing: 0.01em;
+    transition: color .2s ease, transform .2s ease;
 }
 
 .footer-credit strong {
     color: #94afc9;
+    font-weight: 700;
+    transition: color .2s ease;
+}
+
+.footer-credit:hover {
+    color: #cdd8e8 !important;
+    transform: translateY(-1px);
 }
 
 @media (max-width: 600px) {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        padding: 16px 20px max(16px, env(safe-area-inset-bottom));
+        gap: 6px;
     }
+}
+
+/* Ensure the footer colour reaches the physical bottom of every document. */
+html, body { min-height: 100%; background: #0c2340; }
+body.component-page .main-footer,
+body:not(.component-page) .main-footer {
+    margin-bottom: 0;
+    box-shadow: 0 1px 0 #0c2340;
 }
 
 /* ============================================================
@@ -520,6 +541,33 @@
 
 @media (prefers-reduced-motion: reduce) {
     .whatsapp-fab { animation: none; }
+}
+
+/* Shared, compositor-friendly motion for every catalogue page. The matching
+   observer lives in script.js and reveals each element only once. */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition: opacity .65s ease var(--reveal-delay, 0ms), transform .65s cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+.reveal-on-scroll.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+body.component-page .part-card.reveal-on-scroll { transform: translate3d(0, 14px, 0); }
+body.component-page .part-card.reveal-on-scroll.is-visible { transform: translate3d(0, 0, 0); }
+
+body.component-page .part-card,
+body.component-page .btn-inquire {
+    -webkit-tap-highlight-color: transparent;
+}
+body.component-page .part-card:active { transform: translate3d(0, -2px, 0) scale(.995); }
+body.component-page .btn-inquire:active { transform: scale(.98); }
+
+@media (hover: hover) and (pointer: fine) {
+    .footer-credit:hover strong { color: #fff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll { opacity: 1; transform: none; transition: none; will-change: auto; }
 }
 
 .back-to-top {
@@ -681,4 +729,76 @@ body.component-page .border-bottom { border-color: #dfe6ee !important; }
     .page-category-title {
         padding: 24px 16px 6px 16px;
     }
+}
+
+/* ============================================================
+   SHARED MOBILE SPACING SYSTEM
+   Catalogue pages use Bootstrap plus their own page styles, so their mobile
+   gutters and vertical rhythm are deliberately owned here.
+   ============================================================ */
+@media (max-width: 768px) {
+    :root {
+        --mobile-gutter: clamp(18px, 5vw, 24px);
+        --mobile-section-space: clamp(52px, 9vw, 68px);
+        --mobile-card-space: 18px;
+    }
+
+    body.component-page { overflow-x: clip; }
+    body.component-page .page-category-title {
+        padding: 28px var(--mobile-gutter) 10px;
+    }
+    body.component-page .py-5 {
+        padding-top: var(--mobile-section-space) !important;
+        padding-bottom: var(--mobile-section-space) !important;
+    }
+    body.component-page .py-5 > .container {
+        width: 100%;
+        padding-left: var(--mobile-gutter) !important;
+        padding-right: var(--mobile-gutter) !important;
+    }
+    body.component-page .py-5 .border-bottom {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+        margin-bottom: 28px !important;
+        padding-bottom: 18px !important;
+    }
+    body.component-page .dropdown .btn {
+        min-height: 44px;
+        padding: 9px 12px;
+    }
+    body.component-page .row.g-4 {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+    body.component-page .part-card { border-radius: 14px; }
+    body.component-page .img-container { height: 156px; padding: 16px; }
+    body.component-page .part-info { padding: var(--mobile-card-space); }
+    body.component-page .part-title { margin-bottom: 8px; line-height: 1.35; }
+    body.component-page .part-sku { margin-bottom: 14px; }
+    body.component-page .btn-inquire {
+        width: 100%;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-top {
+        gap: 32px;
+        padding: 36px var(--mobile-gutter) 32px;
+    }
+    .footer-brand { gap: 16px; }
+    .footer-links-group { gap: 28px 20px; }
+    .footer-links-col h4.footer-heading { margin-bottom: 14px; }
+    .footer-links-col ul { gap: 12px; }
+    .footer-links-col ul li a, .footer-contact-list li { line-height: 1.5; }
+    .footer-socials { gap: 14px; }
+    .social-btn { width: 42px; height: 42px; }
+    .footer-bottom { padding-left: var(--mobile-gutter); padding-right: var(--mobile-gutter); }
+}
+
+@media (max-width: 420px) {
+    .footer-links-group { grid-template-columns: 1fr; gap: 26px; }
+    .footer-logo span { font-size: 1rem; }
 }

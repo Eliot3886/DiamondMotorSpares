@@ -1372,13 +1372,125 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     outline: 3px solid rgba(228,188,86,.95);
     outline-offset: 3px;
 }
-.reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.75,.25,1); }
+.reveal-on-scroll { opacity: 0; transform: translate3d(0, 18px, 0); transition: opacity .65s ease var(--reveal-delay, 0ms), transform .65s cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms); will-change: opacity, transform; }
 .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 body.component-page .part-card.reveal-on-scroll { transform: translateY(14px); }
 body.component-page .part-card.reveal-on-scroll.is-visible { transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
     .reveal-on-scroll { opacity: 1; transform: none; }
+}
+
+/* Mobile-first premium interaction layer: transform/opacity-only motion avoids
+   layout work and stays smooth on current Android and iPhone browsers. */
+html { background: #0c2340; }
+body { min-height: 100vh; overflow-x: clip; }
+img { content-visibility: auto; }
+
+.hero-content > * { animation: hero-content-in .7s cubic-bezier(.2,.75,.25,1) both; }
+.hero-content h1 { animation-delay: .06s; }
+.hero-content p { animation-delay: .16s; }
+.hero-content .hero-buttons { animation-delay: .25s; }
+
+@keyframes hero-content-in {
+    from { opacity: 0; transform: translate3d(0, 16px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.btn, .btn-submit, .btn-inquire, .quote-banner-cta, .social-btn {
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:active, .btn-submit:active, .btn-inquire:active, .quote-banner-cta:active, .social-btn:active {
+    transform: translate3d(0, 1px, 0) scale(.98);
+}
+
+.product-card-dedicated, body.component-page .part-card, .confidence-points article, .info-item {
+    -webkit-tap-highlight-color: transparent;
+}
+.product-card-dedicated:active, body.component-page .part-card:active {
+    transform: translate3d(0, -2px, 0) scale(.995);
+}
+.product-card-dedicated:active .icon-wrapper { transform: scale(1.06); }
+
+@media (hover: hover) and (pointer: fine) {
+    .product-card-dedicated:hover .icon-wrapper { transform: rotate(-4deg) scale(1.06); }
+    .footer-credit:hover strong { color: #fff; }
+}
+
+@media (max-width: 768px) {
+    .container { padding-left: 16px; padding-right: 16px; }
+    .hero { min-height: 540px; padding-inline: 16px; }
+    .hero-buttons { width: 100%; gap: 8px; }
+    .hero-buttons .btn { flex: 1 1 190px; margin: 0; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+    .section-title-container { margin-bottom: 26px; }
+    .section-title { font-size: clamp(1.7rem, 7vw, 2.05rem); }
+    .product-grid-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .product-card-dedicated { min-height: 100%; padding: 20px 14px 16px; }
+    .product-card-dedicated h4 { font-size: 1rem; }
+    .product-card-dedicated p { min-height: 0; font-size: .8rem; }
+    .filter-box, .form-container { padding: 18px !important; }
+}
+
+@media (max-width: 390px) {
+    .product-grid-main { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content > * { animation: none; }
+    .reveal-on-scroll { transition: none; will-change: auto; }
+}
+
+/* ============================================================
+   MOBILE SPACING SYSTEM
+   A single gutter and vertical rhythm keeps the home page balanced from
+   compact phones through tablets, without changing the established brand.
+   ============================================================ */
+@media (max-width: 768px) {
+    :root {
+        --mobile-gutter: clamp(18px, 5vw, 24px);
+        --mobile-section-space: clamp(52px, 9vw, 68px);
+        --mobile-card-space: 18px;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: var(--mobile-gutter) !important;
+        padding-right: var(--mobile-gutter) !important;
+    }
+
+    .hero { padding-left: var(--mobile-gutter) !important; padding-right: var(--mobile-gutter) !important; }
+    .about-section, .contact-wrapper { padding-left: var(--mobile-gutter) !important; padding-right: var(--mobile-gutter) !important; }
+    .about-section { padding-top: var(--mobile-section-space) !important; padding-bottom: var(--mobile-section-space) !important; }
+    .contact-wrapper { padding-top: var(--mobile-section-space) !important; padding-bottom: var(--mobile-section-space) !important; }
+    #dedicated-products, .confidence-section, .testimonials-section { padding-top: var(--mobile-section-space) !important; padding-bottom: var(--mobile-section-space) !important; }
+
+    .about-grid { gap: 28px !important; }
+    .about-text p { margin-bottom: 18px; line-height: 1.7; }
+    .about-features, .form-container { padding: var(--mobile-card-space) !important; }
+    .feature-item { padding: 18px 16px; margin-bottom: 16px; }
+    .brand-promise { margin-top: 18px; }
+
+    .section-title-container { margin-bottom: 28px !important; }
+    .contact-header { margin-bottom: 24px; }
+    .contact-grid { gap: 20px; }
+    .info-sidebar { padding: var(--mobile-card-space) !important; }
+    .contact-info-list { gap: 10px; }
+    .info-item { padding: 12px !important; min-height: 56px; }
+    .input-group { margin-bottom: 14px; }
+    .input-group input, .input-group textarea, .input-group select { min-height: 44px; padding: 11px 12px; }
+    .btn-submit { min-height: 46px; }
+
+    .product-grid-main { gap: 16px !important; }
+    .product-card-dedicated { padding: var(--mobile-card-space) !important; }
+    .product-card-dedicated p { margin-bottom: 12px; }
+    .btn-inquire { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; }
+}
+
+@media (max-width: 390px) {
+    .hero-buttons { flex-wrap: wrap !important; }
+    .hero-buttons .btn { flex-basis: 100%; }
+    .product-grid-main { grid-template-columns: 1fr; }
 }
 
 /* Separate the Mission block from the content above and establish its hierarchy. */

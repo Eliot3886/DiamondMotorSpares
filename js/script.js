@@ -2,8 +2,12 @@
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId.length < 2) return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        target.scrollIntoView({
             behavior: 'smooth'
         });
     });
@@ -144,3 +148,43 @@ document.body.appendChild(backToTop);
 window.addEventListener('scroll', () => {
     backToTop.classList.toggle('is-visible', window.scrollY > 500);
 }, { passive: true });
+
+// Shared, progressive motion system. It only animates elements once they are
+// close to the viewport, keeping scrolling responsive on lower-powered phones.
+const motionTargets = document.querySelectorAll(
+    'main section, .about-section, .trust-strip, .confidence-section, #dedicated-products, .testimonials-section, .quote-banner, .contact-wrapper, .product-card-dedicated, body.component-page .part-card, .filter-box, .info-sidebar, .form-container'
+);
+
+if ('IntersectionObserver' in window) {
+    let staggerIndex = 0;
+    motionTargets.forEach((element) => {
+        if (element.classList.contains('reveal-on-scroll')) return;
+        element.classList.add('reveal-on-scroll');
+        if (element.matches('.product-card-dedicated, body.component-page .part-card, .confidence-points article')) {
+            element.style.setProperty('--reveal-delay', `${Math.min(staggerIndex++ * 55, 275)}ms`);
+        }
+    });
+
+    const mobileMotionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -7% 0px', threshold: 0.08 });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach((element) => mobileMotionObserver.observe(element));
+}
+
+// Every page shares a balanced footer ending, including the developer credit.
+document.querySelectorAll('.main-footer').forEach((footer) => {
+    if (footer.querySelector('.footer-bottom')) return;
+    const footerBottom = document.createElement('div');
+    footerBottom.className = 'footer-bottom';
+    footerBottom.innerHTML = `<p>&copy; ${new Date().getFullYear()} Diamond Motor Spares. All rights reserved.</p><p class="footer-credit">Developed by <strong>Eliot Chitowamombe</strong></p>`;
+    footer.appendChild(footerBottom);
+});
+
+// A non-blocking page-ready state provides a polished entrance without hiding
+// content if JavaScript or animation support is unavailable.
+requestAnimationFrame(() => document.documentElement.classList.add('page-ready'));
