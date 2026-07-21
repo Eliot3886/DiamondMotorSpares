@@ -112,6 +112,38 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
     });
 });
 
+// A small desktop-only pointer response adds depth to the hero without moving
+// the content or affecting scroll performance. Updates are batched in rAF.
+const hero = document.querySelector('.hero');
+const canUseHeroParallax = hero
+    && window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (canUseHeroParallax) {
+    let heroFrame;
+    let pointerX = 0;
+    let pointerY = 0;
+
+    const updateHeroParallax = () => {
+        hero.style.setProperty('--hero-parallax-x', `${pointerX * 10}px`);
+        hero.style.setProperty('--hero-parallax-y', `${pointerY * 7}px`);
+        heroFrame = undefined;
+    };
+
+    hero.addEventListener('pointermove', (event) => {
+        const bounds = hero.getBoundingClientRect();
+        pointerX = (event.clientX - bounds.left) / bounds.width - .5;
+        pointerY = (event.clientY - bounds.top) / bounds.height - .5;
+        if (!heroFrame) heroFrame = requestAnimationFrame(updateHeroParallax);
+    });
+
+    hero.addEventListener('pointerleave', () => {
+        pointerX = 0;
+        pointerY = 0;
+        if (!heroFrame) heroFrame = requestAnimationFrame(updateHeroParallax);
+    });
+}
+
 // Lightweight, progressive enhancement for premium page transitions.
 // Content remains visible if JavaScript is unavailable.
 const revealTargets = document.querySelectorAll(
@@ -136,18 +168,6 @@ document.querySelectorAll('img.img-fluid').forEach((image) => {
     image.loading = 'lazy';
     image.decoding = 'async';
 });
-
-const backToTop = document.createElement('button');
-backToTop.type = 'button';
-backToTop.className = 'back-to-top';
-backToTop.setAttribute('aria-label', 'Back to top');
-backToTop.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
-backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-document.body.appendChild(backToTop);
-
-window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('is-visible', window.scrollY > 500);
-}, { passive: true });
 
 // Shared, progressive motion system. It only animates elements once they are
 // close to the viewport, keeping scrolling responsive on lower-powered phones.
