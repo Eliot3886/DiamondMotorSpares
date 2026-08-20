@@ -112,6 +112,33 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
     });
 });
 
+// Keep the mobile bottom navigation in sync with the section currently in view.
+// It is purely progressive enhancement; all links work normally without it.
+const mobileBottomNavLinks = document.querySelectorAll('.mobile-bottom-nav a[href^="#"]');
+if (mobileBottomNavLinks.length && 'IntersectionObserver' in window) {
+    const mobileNavTargets = [...mobileBottomNavLinks]
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+    const setMobileNavActive = (id) => {
+        mobileBottomNavLinks.forEach((link) => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('is-active', isActive);
+            if (isActive) link.setAttribute('aria-current', 'page');
+            else link.removeAttribute('aria-current');
+        });
+    };
+
+    const mobileNavObserver = new IntersectionObserver((entries) => {
+        const visibleEntry = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visibleEntry) setMobileNavActive(visibleEntry.target.id);
+    }, { rootMargin: '-35% 0px -45% 0px', threshold: [0.05, 0.2, 0.45] });
+
+    mobileNavTargets.forEach((section) => mobileNavObserver.observe(section));
+}
+
 // A small desktop-only pointer response adds depth to the hero without moving
 // the content or affecting scroll performance. Updates are batched in rAF.
 const hero = document.querySelector('.hero');
