@@ -37,8 +37,8 @@ html, body, button, input, select, textarea {
 .navbar .logo h1 {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1.15rem;
+    gap: 10px;
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.5px;
     color: white;
@@ -48,11 +48,11 @@ html, body, button, input, select, textarea {
 
 /* Style the Image */
 .navbar .logo img {
-    height: 34px;
+    height: 38px;
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
-    border-radius: 30%;
+    border-radius: 6px;
 }
 
 /* The 'MOTOR SPARES' part (The Span) */
@@ -60,7 +60,7 @@ html, body, button, input, select, textarea {
     color: var(--brand-red); /* Red accent */
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 1.15rem;
+    font-size: inherit;
 }
 
 /* Desktop Navigation Links */
@@ -201,12 +201,14 @@ html, body, button, input, select, textarea {
     /* The final strip owns the bottom spacing so no page-colour band can show
        beneath the footer on short pages or mobile browser chrome. */
     padding: 0;
+    padding-bottom: 0 !important;
     text-align: left;
     width: 100%;
     max-width: none;
     margin-left: 0;
     margin-right: 0;
     margin-top: auto;
+    margin-bottom: 0 !important;
     box-sizing: border-box;
 }
 
@@ -437,7 +439,10 @@ html, body, button, input, select, textarea {
 .footer-bottom {
     background: rgba(0, 0, 0, 0.35);
     border-top: 1px solid rgba(255, 255, 255, 0.07);
-    padding: 18px 30px max(18px, env(safe-area-inset-bottom));
+    padding: 18px 30px 0;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -448,7 +453,11 @@ html, body, button, input, select, textarea {
 .footer-bottom p {
     font-size: 0.8rem;
     color: #607899;
-    margin: 0;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1.4;
 }
 
 .footer-credit {
@@ -456,6 +465,8 @@ html, body, button, input, select, textarea {
     color: #607899 !important;
     letter-spacing: 0.01em;
     transition: color .2s ease, transform .2s ease;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .footer-credit strong {
@@ -473,16 +484,33 @@ html, body, button, input, select, textarea {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
-        padding: 16px 20px max(16px, env(safe-area-inset-bottom));
+        padding: 16px 20px 0 !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
         gap: 6px;
     }
 }
 
 /* Ensure the footer colour reaches the physical bottom of every document. */
-html, body { min-height: 100%; background: #0c2340; }
+html {
+    height: 100%;
+}
+html, body {
+    min-height: 100%;
+    min-height: 100vh;
+    background: #0c2340;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
 body.component-page .main-footer,
 body:not(.component-page) .main-footer {
-    margin-bottom: 0;
+    margin-top: auto;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
     box-shadow: 0 1px 0 #0c2340;
 }
 
@@ -777,7 +805,7 @@ body.component-page .border-bottom { border-color: #dfe6ee !important; }
     .footer-links-col ul li a, .footer-contact-list li { line-height: 1.5; }
     .footer-socials { gap: 14px; }
     .social-btn { width: 42px; height: 42px; }
-    .footer-bottom { padding-left: var(--mobile-gutter); padding-right: var(--mobile-gutter); }
+    .footer-bottom { padding-left: var(--mobile-gutter); padding-right: var(--mobile-gutter); padding-bottom: 0 !important; margin-bottom: 0 !important; }
 }
 
 @media (max-width: 420px) {

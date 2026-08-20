@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    DIAMOND MOTOR SPARES — MOBILE PREMIUM LAYER
    All rules scoped inside max-width: 768px  (or 390px).
    Zero desktop layout changes.
@@ -17,30 +17,53 @@
     --m-radius-sm: 12px;
     --m-shadow:    0 4px 20px rgba(12,35,64,.10);
     --m-shadow-md: 0 8px 32px rgba(12,35,64,.14);
-    --m-gutter:    18px;
-    --m-section:   52px;
+    --m-gutter:    clamp(8px, 2.5vw, 14px);
+    --m-section:   46px;
 }
 
 @media (max-width: 768px) {
 
     html { -webkit-text-size-adjust: 100%; }
     body { overflow-x: hidden; }
+    .container { padding-left: var(--m-gutter) !important; padding-right: var(--m-gutter) !important; }
+
+    /* Sections with their own inner .container must not apply the gutter twice. */
+    .about-section, .confidence-section, .testimonials-section, .contact-wrapper, .quote-banner {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 
     /* == NAVIGATION == */
     .navbar {
-        height: 68px !important;
-        padding: 0 var(--m-gutter) !important;
+        height: 70px !important;
+        padding: 0 16px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        background: rgba(12, 35, 64, .96) !important;
-        box-shadow: 0 8px 24px rgba(5, 17, 33, .16) !important;
+        background: rgba(12, 35, 64, .98) !important;
+        box-shadow: 0 4px 18px rgba(5, 17, 33, .22) !important;
         backdrop-filter: blur(14px);
     }
 
-    .navbar .logo h1      { font-size: 0.82rem !important; gap: 7px !important; white-space: nowrap !important; }
-    .navbar .logo img     { height: 28px !important; }
-    .navbar .logo h1 span { font-size: 0.82rem !important; }
+    .navbar .logo h1 {
+        font-size: clamp(1.1rem, 4.9vw, 1.28rem) !important;
+        font-weight: 900 !important;
+        gap: 10px !important;
+        letter-spacing: -.4px !important;
+        white-space: nowrap !important;
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .navbar .logo img {
+        height: 38px !important;
+        width: auto !important;
+    }
+    .navbar .logo h1 span {
+        font-size: inherit !important;
+        font-weight: 900 !important;
+        color: var(--m-red, #e31e24) !important;
+    }
 
     .menu-toggle, .hamburger, .navbar .nav-links { display: none !important; }
 
@@ -79,50 +102,60 @@
 
     .mobile-bottom-nav a.is-active { color: var(--m-red); background: #fff1f1; }
     .mobile-bottom-nav i { font-size: 1.05rem; }
-    body { padding-bottom: calc(88px + env(safe-area-inset-bottom)); scroll-padding-bottom: 100px; }
+    body { padding-bottom: 0 !important; margin-bottom: 0 !important; scroll-padding-bottom: 100px; }
 
     /* == HERO == */
     .hero {
-        min-height: calc(100svh - 62px) !important;
+        min-height: calc(100svh - 70px) !important;
         height: auto !important;
-        padding: var(--m-section) var(--m-gutter) 64px !important;
+        padding: 36px 20px calc(80px + env(safe-area-inset-bottom)) 20px !important;
         display: flex !important;
-        align-items: flex-end !important;
+        flex-direction: column !important;
+        align-items: center !important;
         justify-content: center !important;
+        position: relative !important;
     }
 
     .hero-content {
-        max-width: 100% !important;
-        text-align: left !important;
+        width: 100% !important;
+        max-width: 380px !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         animation: none !important;
     }
 
     .hero-content h1 {
-        font-size: clamp(2rem, 8.5vw, 2.8rem) !important;
-        line-height: 1.08 !important;
-        letter-spacing: -1.2px !important;
+        font-size: clamp(2.15rem, 9.2vw, 2.75rem) !important;
+        line-height: 1.14 !important;
+        letter-spacing: -0.8px !important;
         font-weight: 800 !important;
-        margin-bottom: 14px !important;
-        color: #fff !important;
-        text-shadow: 0 2px 12px rgba(0,0,0,.45) !important;
+        max-width: 320px !important;
+        margin: 0 auto 16px !important;
+        color: #ffffff !important;
+        text-shadow: 0 2px 14px rgba(0,0,0,.5) !important;
     }
 
     .hero-content p {
-        font-size: 1rem !important;
-        line-height: 1.65 !important;
-        opacity: .88 !important;
-        margin-bottom: 28px !important;
-        max-width: none !important;
-        text-align: left !important;
+        font-size: clamp(0.9rem, 3.6vw, 0.98rem) !important;
+        line-height: 1.55 !important;
+        opacity: .9 !important;
+        max-width: 280px !important;
+        margin: 0 auto 30px !important;
+        text-align: center !important;
         color: #d6e2f0 !important;
     }
 
     .hero-buttons {
         display: flex !important;
         flex-direction: column !important;
-        gap: 12px !important;
+        gap: 13px !important;
         width: 100% !important;
-        max-width: none !important;
+        max-width: 310px !important;
+        margin: 0 auto !important;
         align-items: stretch !important;
         flex-wrap: nowrap !important;
     }
@@ -130,32 +163,35 @@
     .hero-buttons .btn {
         width: 100% !important;
         margin: 0 !important;
-        padding: 15px 20px !important;
-        font-size: 0.9rem !important;
-        font-weight: 700 !important;
+        padding: 0 20px !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        font-size: 0.85rem !important;
+        font-weight: 800 !important;
         border-radius: 9999px !important;
-        min-height: 52px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         gap: 8px !important;
         letter-spacing: .04em !important;
         text-transform: uppercase !important;
-        flex: unset !important;
+        box-sizing: border-box !important;
+        flex: none !important;
     }
 
     .hero-buttons .btn-whatsapp {
-        background: var(--m-red) !important;
-        border-color: var(--m-red) !important;
-        box-shadow: 0 8px 24px rgba(227,30,36,.35) !important;
-        color: #fff !important;
+        background: #e31e24 !important;
+        border: none !important;
+        box-shadow: 0 6px 20px rgba(227,30,36,.38) !important;
+        color: #ffffff !important;
     }
 
     .hero-buttons .btn-request-quote {
-        background: var(--m-gold) !important;
-        border-color: var(--m-gold) !important;
-        color: var(--m-navy) !important;
-        box-shadow: 0 8px 24px rgba(212,175,55,.30) !important;
+        background: #dfa72c !important;
+        border: none !important;
+        color: #0c2340 !important;
+        box-shadow: 0 6px 20px rgba(223,167,44,.32) !important;
+        font-weight: 800 !important;
     }
 
     .hero-buttons .btn:active { transform: scale(.97) !important; }
@@ -236,13 +272,21 @@
     .confidence-points h3 { font-size: .97rem !important; margin-bottom: 4px !important; }
     .confidence-points p  { font-size: .88rem !important; line-height: 1.6 !important; }
 
-    /* == PRODUCTS == */
-    #dedicated-products { padding: var(--m-section) 0 !important; }
+    /* == PRODUCTS ==
+       This section deliberately owns one gutter. Removing the nested
+       container/grid padding lets cards use the useful width of a phone. */
+    #dedicated-products {
+        --products-gutter: clamp(8px, 2.5vw, 14px);
+        padding: var(--m-section) 0 !important;
+    }
+
+    #dedicated-products > .container { padding-left: 0 !important; padding-right: 0 !important; }
+    #dedicated-products .section-title-container { padding-left: var(--products-gutter) !important; padding-right: var(--products-gutter) !important; }
 
     .filter-box {
         border-radius: var(--m-radius-sm) !important;
         padding: 18px !important;
-        margin: 0 var(--m-gutter) 20px !important;
+        margin: 0 var(--products-gutter) 16px !important;
     }
 
     .filter-box h5 { font-size: .82rem !important; margin-bottom: 12px !important; }
@@ -256,13 +300,14 @@
     }
 
     .product-grid-main {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
-        padding: 0 var(--m-gutter) !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 14px !important;
+        padding: 0 var(--products-gutter) !important;
     }
 
     .product-card-dedicated {
-        padding: 18px 14px 16px !important;
+        width: 100% !important;
+        padding: 20px !important;
         border-radius: 14px !important;
         box-shadow: 0 4px 14px rgba(12,35,64,.07) !important;
         border: 1px solid #e9edf3 !important;
@@ -281,8 +326,8 @@
         margin: 0 0 10px !important;
     }
 
-    .product-card-dedicated h4 { font-size: .92rem !important; margin-bottom: 6px !important; line-height: 1.3 !important; }
-    .product-card-dedicated p  { font-size: .78rem !important; line-height: 1.5 !important; margin-bottom: 10px !important; min-height: 0 !important; }
+    .product-card-dedicated h4 { font-size: 1.05rem !important; margin-bottom: 7px !important; line-height: 1.3 !important; }
+    .product-card-dedicated p  { font-size: .9rem !important; line-height: 1.58 !important; margin-bottom: 14px !important; min-height: 0 !important; }
 
     .btn-inquire {
         font-size: .75rem !important;
@@ -372,23 +417,30 @@
     .info-content small,
     .info-content a   { font-size: .75rem !important; }
 
-    /* == WHATSAPP FAB — pill with text on mobile == */
+    /* == WHATSAPP FAB == */
     .whatsapp-fab {
-        bottom: calc(88px + env(safe-area-inset-bottom)) !important;
-        right: 14px !important;
-        padding: 11px 20px 11px 15px !important;
-        border-radius: 9999px !important;
-        width: auto !important;
-        height: auto !important;
+        position: fixed !important;
+        bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+        right: 16px !important;
+        left: auto !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        width: 52px !important;
+        height: 52px !important;
+        display: flex !important;
+        align-items: center !important;
         justify-content: center !important;
-        gap: 8px !important;
-        box-shadow: 0 6px 22px rgba(37,211,102,.45) !important;
-        font-size: .85rem !important;
-        font-weight: 700 !important;
+        gap: 0 !important;
+        background: #25D366 !important;
+        color: #ffffff !important;
+        box-shadow: 0 6px 20px rgba(37,211,102,.45) !important;
+        animation: whatsapp-mobile-pulse 3s ease-in-out infinite !important;
+        z-index: 10000 !important;
+        text-decoration: none !important;
     }
 
-    .whatsapp-fab-text { display: inline-block !important; }
-    .whatsapp-fab-icon { font-size: 1.2rem !important; }
+    .whatsapp-fab-text { display: none !important; }
+    .whatsapp-fab-icon { font-size: 1.55rem !important; color: #ffffff !important; line-height: 1 !important; }
 
     /* == MODAL == */
     .modal-content {
@@ -419,8 +471,23 @@
     .footer-bottom {
         flex-direction: column !important;
         text-align: center !important;
-        padding: 16px var(--m-gutter) max(16px, env(safe-area-inset-bottom)) !important;
+        padding: 16px var(--m-gutter) 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
         gap: 6px !important;
+    }
+
+    .footer-bottom p {
+        margin: 0 !important;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* One outer gutter only: sections use their child container for width. */
+    .about-section, .confidence-section, .testimonials-section, .contact-wrapper, .quote-banner {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
 
@@ -428,11 +495,15 @@
     .mobile-bottom-nav { display: none; }
 }
 
-/* Extra-small phones (<=390px) */
+@keyframes whatsapp-mobile-pulse {
+    0%, 100% { box-shadow: 0 6px 22px rgba(37, 211, 102, .42); }
+    50% { box-shadow: 0 6px 22px rgba(37, 211, 102, .42), 0 0 0 7px rgba(37, 211, 102, 0); }
+}
+
 @media (max-width: 390px) {
-    .hero-content h1    { font-size: 1.85rem !important; }
-    .hero-buttons       { gap: 10px !important; }
+    .hero-content h1    { font-size: 1.95rem !important; }
+    .hero-buttons       { gap: 11px !important; }
     .product-grid-main  { grid-template-columns: 1fr !important; }
     .footer-links-group { grid-template-columns: 1fr !important; }
-    .whatsapp-fab       { padding: 10px 16px 10px 13px !important; font-size: .8rem !important; }
+    .whatsapp-fab       { width: 50px !important; height: 50px !important; }
 }

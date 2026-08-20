@@ -595,6 +595,12 @@ body {
     transform: translateY(-2px);
 }
 
+.btn-submit:disabled { cursor: wait; opacity: .72; transform: none; }
+.form-status { min-height: 1.5em; margin: 12px 0 0; font-size: .88rem; font-weight: 600; }
+.form-status.is-loading { color: #526176; }
+.form-status.is-success { color: #168044; }
+.form-status.is-error { color: #c01b21; }
+
 /* Contact responsive — mobile contact info goes horizontal row */
 @media (max-width: 480px) {
     .contact-info-list {

@@ -23,7 +23,21 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
 contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
+    if (!this.reportValidity()) return;
 
+    const submitButton = this.querySelector('.btn-submit');
+    const submitLabel = submitButton?.querySelector('span');
+    const formStatus = document.getElementById('contact-form-status');
+    const originalLabel = submitLabel?.textContent || 'Send Message';
+    if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+    }
+    if (submitLabel) submitLabel.textContent = 'Sending…';
+    if (formStatus) {
+        formStatus.className = 'form-status is-loading';
+        formStatus.textContent = 'Sending your message…';
+    }
 
     // Generate current time for the {{time}} variable in your template
     const now = new Date();
@@ -46,10 +60,23 @@ const templateParams = {
 
     emailjs.send(serviceID, templateID, templateParams)
         .then(() => {
-            alert('Sent Successfully! Thank you for contacting Diamond Motor Spares. We have received your message and will come back to you shortly')
-            this.reset(); // Clears the form
+            this.reset();
+            if (formStatus) {
+                formStatus.className = 'form-status is-success';
+                formStatus.textContent = 'Message sent successfully. We will get back to you shortly.';
+            }
         }, (err) => {
-            alert('Failed to reach Diamond Motor Spares. Error:' + JSON.stringify(err));
+            if (formStatus) {
+                formStatus.className = 'form-status is-error';
+                formStatus.textContent = 'We could not send your message. Please try again or contact us by phone.';
+            }
+            console.error('Contact form submission failed:', err);
+        }).finally(() => {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.removeAttribute('aria-busy');
+            }
+            if (submitLabel) submitLabel.textContent = originalLabel;
         });
 });
 }
